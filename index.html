@@ -1,754 +1,1062 @@
 <!DOCTYPE html>
-<html class="scroll-smooth" lang="en">
+<html class="scroll-smooth" lang="pt-BR">
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Antigravity Design System</title>
+    <title>Aurea Dental — Reabilitação Oral Premium</title>
     <script src="./digital-assets/resource_3fa48481346f.js"></script>
     <script src="./digital-assets/iconify-icon_d39ffc6e4c56.js"></script>
     <link href="./digital-assets/css2_19fd9cc6b396.css" rel="stylesheet" />
     <link href="./gemini-assets/css2_8e191ef32247.css" rel="stylesheet" />
     <link href="./gemini-assets/css2_62759cd015bd.css" rel="stylesheet" />
     <style>
-        :root { --bg-main:#f4f3ee; --bg-soft:#ebe7de; --bg-panel:rgba(255,255,255,.68); --bg-panel-strong:rgba(255,255,255,.82); --ink:#171717; --muted:#6f6b63; --line:rgba(49,46,41,.14); --line-strong:rgba(49,46,41,.24); --primary:#161616; --secondary:#8d877c; --accent:#e9d9b9; --accent-strong:#c9a96a; --success:#0f9f6f; --warning:#cf8b17; --danger:#cf5240; --shadow-lg:0 30px 80px rgba(24,19,10,.14); --shadow-md:0 18px 40px rgba(24,19,10,.1); --radius-xl:2rem; --radius-lg:1.25rem; --ease-out:cubic-bezier(.16,1,.3,1); --ease-elastic:cubic-bezier(.34,1.56,.64,1); }
-        body { font-family:'Inter',sans-serif; background:radial-gradient(circle at 20% 20%,rgba(231,214,179,.32),transparent 26%),radial-gradient(circle at 85% 15%,rgba(255,255,255,.95),transparent 22%),radial-gradient(circle at 70% 60%,rgba(204,169,103,.12),transparent 30%),linear-gradient(180deg,#faf9f4 0%,var(--bg-main) 45%,#efebe1 100%); color:var(--ink); overflow-x:hidden; }
-        iconify-icon { display:inline-flex; align-items:center; justify-content:center; vertical-align:middle; }
-        .font-display { font-family:'Space Grotesk','Inter',sans-serif; }
-        .font-mono-system { font-family:'Geist Mono','SFMono-Regular',monospace; }
-        .surface-grid::before { content:""; position:absolute; inset:0; background-image:linear-gradient(to right,rgba(43,37,26,.05) 1px,transparent 1px),linear-gradient(to bottom,rgba(43,37,26,.05) 1px,transparent 1px); background-size:72px 72px; mask-image:linear-gradient(180deg,transparent,black 10%,black 90%,transparent); pointer-events:none; }
-        .noise-overlay::after { content:""; position:absolute; inset:0; background-image:radial-gradient(circle at 20% 20%,rgba(0,0,0,.05) 0 1px,transparent 1px),radial-gradient(circle at 80% 60%,rgba(0,0,0,.04) 0 1px,transparent 1px); background-size:10px 10px,14px 14px; opacity:.22; mix-blend-mode:multiply; pointer-events:none; }
-        .reveal { opacity:0; transform:translateY(2rem); filter:blur(10px); transition:all 1s var(--ease-out); }
-        .reveal.active { opacity:1; transform:translateY(0); filter:blur(0); }
-        .animate-on-scroll { animation-play-state:paused !important; }
-        .animate-on-scroll.animate { animation-play-state:running !important; }
-        .text-reveal-wrapper { overflow:hidden; display:inline-block; vertical-align:bottom; }
-        .text-reveal-content { transform:translateY(110%); opacity:0; transition:transform 1.2s var(--ease-out),opacity 1.2s ease; display:block; }
-        .reveal-active .text-reveal-content { transform:translateY(0); opacity:1; }
-        .delay-100 { transition-delay:.1s; } .delay-200 { transition-delay:.2s; } .delay-300 { transition-delay:.3s; } .delay-400 { transition-delay:.4s; } .delay-500 { transition-delay:.5s; } .delay-700 { transition-delay:.7s; }
-        .nav-load { opacity:0; transform:translateY(-10px); transition:all .8s ease-out; }
-        .nav-load.loaded { opacity:1; transform:translateY(0); }
-        .glass-panel { background:linear-gradient(180deg,rgba(255,255,255,.75),rgba(255,255,255,.5)); backdrop-filter:blur(24px); -webkit-backdrop-filter:blur(24px); border:1px solid rgba(62,54,41,.1); box-shadow:var(--shadow-md); }
-        .carousel-slide { position:absolute; inset:0; transition:opacity 1.5s ease-in-out; opacity:0; overflow:hidden; }
-        .carousel-slide.active { opacity:1; }
-        .carousel-slide img { transform:scale(1); transition:transform 10s ease-out,filter .8s ease; filter:saturate(.8) contrast(1.02); }
-        .carousel-slide.active img { transform:scale(1.08); }
-        .hero-outline { color:transparent; -webkit-text-stroke:1px rgba(255,255,255,.9); text-stroke:1px rgba(255,255,255,.9); }
-        .hero-glass-stroke { color:transparent; -webkit-text-stroke:1px rgba(28,28,28,.28); text-stroke:1px rgba(28,28,28,.28); }
-        .section-shell { position:relative; overflow:hidden; border-bottom:1px solid var(--line); }
-        .section-shell::before { content:""; position:absolute; inset:-20%; background:radial-gradient(circle at top left,rgba(255,255,255,.8),transparent 25%),radial-gradient(circle at bottom right,rgba(201,169,106,.12),transparent 22%); animation:drift 18s linear infinite alternate; pointer-events:none; }
-        .section-shell > * { position:relative; z-index:1; }
-        .metric-card,.component-card,.spec-card { border:1px solid var(--line); background:var(--bg-panel); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); box-shadow:var(--shadow-md); }
-        .flashlight-card { background:linear-gradient(180deg,rgba(255,255,255,.75),rgba(255,255,255,.46)); position:relative; overflow:hidden; }
-        .flashlight-card::before { content:""; position:absolute; inset:0; background:radial-gradient(320px circle at var(--mouse-x) var(--mouse-y),rgba(255,255,255,.85),rgba(233,217,185,.35) 18%,transparent 48%); opacity:0; transition:opacity .5s; pointer-events:none; z-index:0; }
-        .flashlight-card:hover::before { opacity:1; }
-        .flashlight-card > * { position:relative; z-index:1; }
-        .marquee-container { display:flex; overflow:hidden; user-select:none; }
-        .marquee-content { flex-shrink:0; display:flex; justify-content:space-around; min-width:100%; animation:scroll 28s linear infinite; }
-        .beam-button { position:relative; overflow:hidden; border-radius:9999px; padding:1px; }
-        .beam-button > span:first-child { position:absolute; inset:-1000%; background:conic-gradient(from 0deg,transparent 0 332deg,rgba(255,255,255,.95) 360deg); animation:spin 2.2s linear infinite; }
-        .beam-button > span:last-child { position:relative; display:flex; align-items:center; justify-content:center; gap:.75rem; border-radius:9999px; background:#171717; color:#fff; padding:1rem 1.5rem; min-width:13rem; }
-        .beam-button > span:last-child::before { content:""; position:absolute; inset:0; background:linear-gradient(115deg,transparent 10%,rgba(255,255,255,.24) 50%,transparent 90%); transform:translateX(-140%) skewX(-18deg); opacity:0; }
-        .beam-button:hover > span:last-child::before { opacity:1; animation:shimmer 1.4s infinite; }
-        .ghost-button,.chip-button { transition:transform .45s var(--ease-out),background-color .35s ease,color .35s ease,border-color .35s ease; }
-        .ghost-button:hover,.chip-button:hover { transform:translateY(-2px); }
-        .floating-orb { position:absolute; border-radius:9999px; filter:blur(22px); animation:float 10s ease-in-out infinite; pointer-events:none; }
-        .label-pill { border:1px solid rgba(255,255,255,.45); background:rgba(255,255,255,.08); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); }
-        .token-swatch::after { content:""; position:absolute; inset:0; border-radius:inherit; border:1px solid rgba(255,255,255,.38); mix-blend-mode:overlay; pointer-events:none; }
-        .parallax-element,.parallax-img { will-change:transform; }
-        .tooltip-box { transform:translateY(10px) scale(.95); opacity:0; transition:all .3s var(--ease-elastic); pointer-events:none; }
-        .tooltip-trigger:hover .tooltip-box { transform:translateY(0) scale(1); opacity:1; }
-        .no-scrollbar::-webkit-scrollbar { display:none; }
-        @keyframes animationIn { 0% { opacity:0; transform:translateY(30px); filter:blur(10px);} 100% { opacity:1; transform:translateY(0); filter:blur(0);} }
-        @keyframes drift { 0% { transform:translate3d(-2%,-1%,0) scale(1);} 100% { transform:translate3d(2%,1%,0) scale(1.06);} }
-        @keyframes float { 0%,100% { transform:translateY(0) translateX(0);} 50% { transform:translateY(-18px) translateX(8px);} }
-        @keyframes shimmer { from { transform:translateX(-140%) skewX(-18deg);} to { transform:translateX(140%) skewX(-18deg);} }
-        @keyframes spin { to { transform:rotate(360deg);} }
-        @keyframes scroll { from { transform:translateX(0);} to { transform:translateX(-100%);} }
+        /* ─── Design Tokens — same system as Antigravity DS ─────── */
+        :root {
+            --bg-main: #f4f3ee;
+            --bg-soft: #ebe7de;
+            --bg-panel: rgba(255,255,255,.68);
+            --bg-panel-strong: rgba(255,255,255,.82);
+            --ink: #171717;
+            --muted: #6f6b63;
+            --line: rgba(49,46,41,.14);
+            --line-strong: rgba(49,46,41,.24);
+            --primary: #161616;
+            --secondary: #8d877c;
+            --accent: #e9d9b9;
+            --accent-strong: #c9a96a;
+            --success: #0f9f6f;
+            --shadow-lg: 0 30px 80px rgba(24,19,10,.14);
+            --shadow-md: 0 18px 40px rgba(24,19,10,.1);
+            --radius-xl: 2rem;
+            --radius-lg: 1.25rem;
+            --ease-out: cubic-bezier(.16,1,.3,1);
+            --ease-elastic: cubic-bezier(.34,1.56,.64,1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(231,214,179,.32), transparent 26%),
+                radial-gradient(circle at 85% 15%, rgba(255,255,255,.95), transparent 22%),
+                radial-gradient(circle at 70% 60%, rgba(204,169,103,.12), transparent 30%),
+                linear-gradient(180deg, #faf9f4 0%, var(--bg-main) 45%, #efebe1 100%);
+            color: var(--ink);
+            overflow-x: hidden;
+        }
+
+        iconify-icon { display: inline-flex; align-items: center; justify-content: center; vertical-align: middle; }
+        .font-display  { font-family: 'Space Grotesk','Inter',sans-serif; }
+        .font-mono-system { font-family: 'Geist Mono','SFMono-Regular',monospace; }
+
+        /* Grid overlay */
+        .surface-grid::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(to right, rgba(43,37,26,.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(43,37,26,.05) 1px, transparent 1px);
+            background-size: 72px 72px;
+            mask-image: linear-gradient(180deg, transparent, black 10%, black 90%, transparent);
+            pointer-events: none;
+        }
+
+        /* Noise texture */
+        .noise-overlay::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 20% 20%, rgba(0,0,0,.05) 0 1px, transparent 1px),
+                radial-gradient(circle at 80% 60%, rgba(0,0,0,.04) 0 1px, transparent 1px);
+            background-size: 10px 10px, 14px 14px;
+            opacity: .22;
+            mix-blend-mode: multiply;
+            pointer-events: none;
+        }
+
+        /* Scroll reveal */
+        .reveal { opacity: 0; transform: translateY(2rem); filter: blur(10px); transition: all 1s var(--ease-out); }
+        .reveal.active { opacity: 1; transform: translateY(0); filter: blur(0); }
+
+        /* Text reveal (masked slide-up) */
+        .text-reveal-wrapper  { overflow: hidden; display: inline-block; vertical-align: bottom; }
+        .text-reveal-content  { transform: translateY(110%); opacity: 0; transition: transform 1.2s var(--ease-out), opacity 1.2s ease; display: block; }
+        .reveal-active .text-reveal-content { transform: translateY(0); opacity: 1; }
+
+        /* Transition delays */
+        .delay-100 { transition-delay: .1s; }
+        .delay-200 { transition-delay: .2s; }
+        .delay-300 { transition-delay: .3s; }
+        .delay-400 { transition-delay: .4s; }
+        .delay-500 { transition-delay: .5s; }
+        .delay-700 { transition-delay: .7s; }
+
+        /* Nav */
+        .nav-load { opacity: 0; transform: translateY(-10px); transition: all .8s ease-out; }
+        .nav-load.loaded { opacity: 1; transform: translateY(0); }
+
+        /* Glass panel */
+        .glass-panel {
+            background: linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,.5));
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(62,54,41,.1);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Transparent / outlined text */
+        .hero-outline {
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(255,255,255,.9);
+            text-stroke: 1px rgba(255,255,255,.9);
+        }
+        .hero-glass-stroke {
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(28,28,28,.28);
+            text-stroke: 1px rgba(28,28,28,.28);
+        }
+        .hero-ink-stroke {
+            color: transparent;
+            -webkit-text-stroke: 1.5px rgba(23,23,23,.65);
+            text-stroke: 1.5px rgba(23,23,23,.65);
+        }
+
+        /* Section shell (ambient animated background) */
+        .section-shell { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+        .section-shell::before {
+            content: "";
+            position: absolute;
+            inset: -20%;
+            background:
+                radial-gradient(circle at top left, rgba(255,255,255,.8), transparent 25%),
+                radial-gradient(circle at bottom right, rgba(201,169,106,.12), transparent 22%);
+            animation: drift 18s linear infinite alternate;
+            pointer-events: none;
+        }
+        .section-shell > * { position: relative; z-index: 1; }
+
+        /* Cards */
+        .metric-card, .component-card, .spec-card {
+            border: 1px solid var(--line);
+            background: var(--bg-panel);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Flashlight hover card */
+        .flashlight-card {
+            background: linear-gradient(180deg, rgba(255,255,255,.75), rgba(255,255,255,.46));
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--line);
+        }
+        .flashlight-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(320px circle at var(--mouse-x) var(--mouse-y),
+                rgba(255,255,255,.85),
+                rgba(233,217,185,.35) 18%,
+                transparent 48%);
+            opacity: 0;
+            transition: opacity .5s;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .flashlight-card:hover::before { opacity: 1; }
+        .flashlight-card > * { position: relative; z-index: 1; }
+
+        /* Marquee */
+        .marquee-container { display: flex; overflow: hidden; user-select: none; }
+        .marquee-content {
+            flex-shrink: 0;
+            display: flex;
+            justify-content: space-around;
+            min-width: 100%;
+            animation: scroll 30s linear infinite;
+        }
+
+        /* Beam button */
+        .beam-button { position: relative; overflow: hidden; border-radius: 9999px; padding: 1px; }
+        .beam-button > span:first-child {
+            position: absolute;
+            inset: -1000%;
+            background: conic-gradient(from 0deg, transparent 0 332deg, rgba(255,255,255,.95) 360deg);
+            animation: spin 2.2s linear infinite;
+        }
+        .beam-button > span:last-child {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: .75rem;
+            border-radius: 9999px;
+            background: #171717;
+            color: #fff;
+            padding: 1rem 1.5rem;
+            min-width: 13rem;
+        }
+        .beam-button > span:last-child::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(115deg, transparent 10%, rgba(255,255,255,.24) 50%, transparent 90%);
+            transform: translateX(-140%) skewX(-18deg);
+            opacity: 0;
+        }
+        .beam-button:hover > span:last-child::before { opacity: 1; animation: shimmer 1.4s infinite; }
+
+        /* Ghost / chip button */
+        .ghost-button, .chip-button { transition: transform .45s var(--ease-out), background-color .35s ease, color .35s ease, border-color .35s ease; }
+        .ghost-button:hover, .chip-button:hover { transform: translateY(-2px); }
+
+        /* Floating orbs */
+        .floating-orb { position: absolute; border-radius: 9999px; filter: blur(22px); animation: float 10s ease-in-out infinite; pointer-events: none; }
+
+        /* Label pill */
+        .label-pill { border: 1px solid rgba(255,255,255,.45); background: rgba(255,255,255,.08); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+
+        /* Parallax elements */
+        .parallax-element, .parallax-img { will-change: transform; }
+
+        /* Tooltip */
+        .tooltip-box { transform: translateY(10px) scale(.95); opacity: 0; transition: all .3s var(--ease-elastic); pointer-events: none; }
+        .tooltip-trigger:hover .tooltip-box { transform: translateY(0) scale(1); opacity: 1; }
+
+        /* Video frame */
+        .video-frame {
+            position: relative;
+            border-radius: 2.5rem;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,.3);
+            box-shadow:
+                0 40px 100px rgba(24,19,10,.18),
+                0 0 0 1px rgba(201,169,106,.12),
+                inset 0 1px 0 rgba(255,255,255,.4);
+        }
+        .video-frame video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        /* Outlined step number */
+        .step-number {
+            font-family: 'Space Grotesk','Inter',sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -0.08em;
+            color: transparent;
+            -webkit-text-stroke: 1px rgba(23,23,23,.18);
+            flex-shrink: 0;
+            min-width: 4rem;
+        }
+
+        /* Keyframes (all from DS) */
+        @keyframes animationIn { 0% { opacity: 0; transform: translateY(30px); filter: blur(10px); } 100% { opacity: 1; transform: translateY(0); filter: blur(0); } }
+        @keyframes drift     { 0% { transform: translate3d(-2%,-1%,0) scale(1); }   100% { transform: translate3d(2%,1%,0) scale(1.06); } }
+        @keyframes float     { 0%,100% { transform: translateY(0) translateX(0); }  50%  { transform: translateY(-18px) translateX(8px); } }
+        @keyframes shimmer   { from { transform: translateX(-140%) skewX(-18deg); } to   { transform: translateX(140%) skewX(-18deg); } }
+        @keyframes spin      { to { transform: rotate(360deg); } }
+        @keyframes scroll    { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+        @keyframes video-glow { 0%,100% { opacity: .45; transform: scale(1); } 50% { opacity: .75; transform: scale(1.04); } }
     </style>
 </head>
 <body class="antialiased min-h-screen selection:bg-stone-900 selection:text-white">
-    <div class="max-w-[1500px] mx-auto border-x border-black/10 relative bg-white/25 surface-grid noise-overlay">
-        <div class="absolute inset-0 pointer-events-none grid grid-cols-1 md:grid-cols-12 gap-0 z-0 h-full w-full opacity-60">
-            <div class="hidden md:block md:col-span-3 border-r border-black/5 h-full"></div>
-            <div class="hidden md:block md:col-span-3 border-r border-black/5 h-full"></div>
-            <div class="hidden md:block md:col-span-3 border-r border-black/5 h-full"></div>
-            <div class="hidden md:block md:col-span-3 h-full"></div>
-        </div>
 
-        <header class="relative z-50 border-b border-black/10 sticky top-0 bg-[rgba(244,243,238,0.84)] backdrop-blur-xl nav-load">
-            <div class="px-4 md:px-8 py-5 flex items-center justify-between gap-4">
-                <div class="flex items-center gap-5 md:gap-8">
-                    <a class="text-[11px] font-medium tracking-[0.28em] uppercase hover:text-stone-500 transition-colors" href="#typography">Typography</a>
-                    <a class="text-[11px] font-medium tracking-[0.28em] uppercase hover:text-stone-500 transition-colors" href="#colors">Colors</a>
-                    <a class="text-[11px] font-medium tracking-[0.28em] uppercase hidden md:block hover:text-stone-500 transition-colors" href="#components">Components</a>
-                </div>
-                <div class="absolute left-1/2 -translate-x-1/2 flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-full border border-black/10 glass-panel flex items-center justify-center">
-                        <iconify-icon class="text-xl" icon="solar:atom-linear"></iconify-icon>
-                    </div>
-                    <div>
-                        <div class="font-display text-sm md:text-base font-semibold tracking-tight">ANTIGRAVITY</div>
-                        <div class="text-[10px] tracking-[0.28em] uppercase text-stone-500 font-mono-system">Design System</div>
-                    </div>
-                </div>
-                <div class="flex items-center gap-5 md:gap-8">
-                    <a class="text-[11px] font-medium tracking-[0.28em] uppercase hidden md:block hover:text-stone-500 transition-colors" href="#icons">Icons</a>
-                    <a class="text-[11px] font-medium tracking-[0.28em] uppercase hover:text-stone-500 transition-colors" href="#motion">Motion</a>
-                    <a class="text-[11px] font-medium tracking-[0.28em] uppercase hover:text-stone-500 transition-colors" href="#hero-demo">Hero</a>
-                </div>
-            </div>
-        </header>
+<div class="max-w-[1500px] mx-auto border-x border-black/10 relative bg-white/25 surface-grid noise-overlay">
 
-        <section class="relative z-10 grid grid-cols-1 md:grid-cols-12 min-h-[100svh] border-b border-black/10" id="hero-demo">
-            <div class="col-span-1 md:col-span-8 border-b md:border-b-0 md:border-r border-black/10 relative overflow-hidden bg-stone-200">
-                <div class="absolute inset-0">
-                    <div class="carousel-slide active">
-                        <img class="w-full h-full object-cover parallax-img" data-speed="0.04" src="./digital-assets/c7fa69dd-d7fb-48f2-a866-ef3663_f6b789593f38.webp" alt="Design preview 1" />
-                    </div>
-                    <div class="carousel-slide">
-                        <img class="w-full h-full object-cover parallax-img" data-speed="0.03" src="./digital-assets/6c710de5-9712-4c8e-a7db-59ac54_b647957b5aa5.webp" alt="Design preview 2" />
-                    </div>
-                    <div class="carousel-slide">
-                        <img class="w-full h-full object-cover parallax-img" data-speed="0.05" src="./digital-assets/62cc53b7-3355-4618-b7fa-3283f6_a6d3415bc434.webp" alt="Design preview 3" />
-                    </div>
-                </div>
-                <div class="absolute inset-0 bg-gradient-to-br from-white/80 via-transparent to-black/30"></div>
-                <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.95),transparent_22%),radial-gradient(circle_at_bottom_left,rgba(233,217,185,0.55),transparent_26%)]"></div>
-                <div class="floating-orb w-48 h-48 bg-white/70 top-20 right-20 hidden md:block"></div>
-                <div class="floating-orb w-36 h-36 bg-[#e9d9b9]/70 bottom-20 left-12" style="animation-delay:-3s;"></div>
-
-                <div class="relative z-20 p-6 md:p-10 lg:p-14 min-h-[100svh] flex flex-col justify-between">
-                    <div class="flex items-start justify-between gap-4">
-                        <div class="label-pill px-4 py-2 rounded-full text-[11px] font-mono-system uppercase tracking-[0.25em] text-white mix-blend-difference reveal delay-100">
-                            White System / Transparent Lettering / Motion Ready
-                        </div>
-                        <div class="hidden md:flex items-center gap-3 glass-panel rounded-full px-4 py-2 reveal delay-200">
-                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                            <span class="text-[11px] font-mono-system uppercase tracking-[0.22em] text-stone-600">Live Tokens</span>
-                        </div>
-                    </div>
-
-                    <div class="max-w-5xl">
-                        <div class="mb-5 reveal delay-200">
-                            <span class="text-[11px] font-mono-system uppercase tracking-[0.32em] text-white mix-blend-difference">01 / Hero Demonstration</span>
-                        </div>
-
-                        <h1 class="font-display text-[4.1rem] leading-[0.86] md:text-[7.8rem] lg:text-[9.4rem] font-semibold tracking-[-0.08em] text-white mix-blend-difference" id="hero-title">
-                            <span class="text-reveal-wrapper"><span class="text-reveal-content">Anti</span></span><br />
-                            <span class="text-reveal-wrapper"><span class="text-reveal-content delay-100 hero-outline">Gravity</span></span><br />
-                            <span class="text-reveal-wrapper"><span class="text-reveal-content delay-200">System</span></span>
-                        </h1>
-
-                        <div class="mt-8 md:mt-10 grid grid-cols-1 md:grid-cols-[1.2fr,0.8fr] gap-6">
-                            <div class="glass-panel rounded-[2rem] p-6 md:p-8 reveal delay-300">
-                                <p class="text-lg md:text-xl text-stone-800 leading-relaxed max-w-2xl">
-                                    A white-first system language built around transparent display type, soft glass surfaces, glowing interactions, layered grids and controlled motion borrowed from the referenced Gemini and Digital Architect templates.
-                                </p>
-                                <div class="mt-7 flex flex-wrap items-center gap-4">
-                                    <button class="beam-button group">
-                                        <span></span>
-                                        <span>
-                                            <span class="text-sm font-semibold uppercase tracking-[0.16em]">Inspect Hero</span>
-                                            <iconify-icon class="text-xl group-hover:translate-x-1 transition-transform" icon="solar:arrow-right-linear"></iconify-icon>
-                                        </span>
-                                    </button>
-                                    <a class="ghost-button inline-flex items-center gap-3 px-6 py-4 rounded-full border border-black/10 glass-panel text-sm font-semibold uppercase tracking-[0.16em]" href="#components">
-                                        View Components
-                                        <iconify-icon class="text-lg" icon="solar:layers-minimalistic-linear"></iconify-icon>
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="grid gap-4">
-                                <div class="metric-card rounded-[1.75rem] p-5 reveal delay-400 flashlight-card" onmousemove="const rect = this.getBoundingClientRect(); this.style.setProperty('--mouse-x', `${event.clientX - rect.left}px`); this.style.setProperty('--mouse-y', `${event.clientY - rect.top}px`);">
-                                    <div class="flex items-center justify-between mb-12">
-                                        <span class="text-[11px] font-mono-system uppercase tracking-[0.22em] text-stone-500">Transparent Type</span>
-                                        <iconify-icon class="text-2xl text-stone-400" icon="solar:text-bold-linear"></iconify-icon>
-                                    </div>
-                                    <div class="font-display text-5xl tracking-[-0.08em] hero-glass-stroke">A1</div>
-                                </div>
-                                <div class="metric-card rounded-[1.75rem] p-5 reveal delay-500">
-                                    <div class="flex items-center justify-between mb-10">
-                                        <span class="text-[11px] font-mono-system uppercase tracking-[0.22em] text-stone-500">Motion Density</span>
-                                        <iconify-icon class="text-2xl text-stone-400" icon="solar:bolt-circle-linear"></iconify-icon>
-                                    </div>
-                                    <div class="flex items-end justify-between">
-                                        <div>
-                                            <div class="font-display text-4xl tracking-[-0.08em]">08</div>
-                                            <div class="text-xs font-mono-system uppercase tracking-[0.18em] text-stone-500 mt-1">Reusable patterns</div>
-                                        </div>
-                                        <div class="flex gap-2">
-                                            <span class="w-2 h-12 rounded-full bg-stone-300 animate-[animationIn_0.9s_ease-out_0.2s_both]"></span>
-                                            <span class="w-2 h-16 rounded-full bg-stone-500 animate-[animationIn_0.9s_ease-out_0.3s_both]"></span>
-                                            <span class="w-2 h-20 rounded-full bg-stone-900 animate-[animationIn_0.9s_ease-out_0.4s_both]"></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 reveal delay-500">
-                        <div class="glass-panel rounded-[1.5rem] p-4 md:p-5">
-                            <div class="text-[11px] font-mono-system uppercase tracking-[0.22em] text-stone-500 mb-3">Background system</div>
-                            <div class="text-sm text-stone-700 leading-relaxed">Grid, moving glow fields, softened image wash, blur panels and mixed contrast overlays.</div>
-                        </div>
-                        <div class="glass-panel rounded-[1.5rem] p-4 md:p-5">
-                            <div class="text-[11px] font-mono-system uppercase tracking-[0.22em] text-stone-500 mb-3">Buttons</div>
-                            <div class="text-sm text-stone-700 leading-relaxed">Beam border, shimmer sweep, subtle lift, pill outlines and inverted active states.</div>
-                        </div>
-                        <div class="glass-panel rounded-[1.5rem] p-4 md:p-5">
-                            <div class="text-[11px] font-mono-system uppercase tracking-[0.22em] text-stone-500 mb-3">Reveal behavior</div>
-                            <div class="text-sm text-stone-700 leading-relaxed">Masked text reveal, scroll blur-in, parallax image drift and marquee loops.</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-span-1 md:col-span-4 grid grid-rows-[1.1fr,0.9fr,0.9fr] min-h-[520px] bg-[rgba(255,255,255,0.2)]">
-                <div class="border-b border-black/10 p-6 md:p-8 flex flex-col justify-between reveal delay-300">
-                    <div class="flex items-center justify-between">
-                        <span class="text-[11px] font-mono-system uppercase tracking-[0.24em] text-stone-500">System pulse</span>
-                        <iconify-icon class="text-3xl text-stone-400" icon="solar:eye-linear"></iconify-icon>
-                    </div>
-                    <div>
-                        <div class="font-display text-6xl md:text-7xl tracking-[-0.08em]">12</div>
-                        <div class="text-sm text-stone-600">Foundation blocks surfaced with live demos instead of static spec rows.</div>
-                    </div>
-                </div>
-
-                <div class="border-b border-black/10 p-6 md:p-8 flex flex-col justify-between reveal delay-500">
-                    <div class="flex items-center justify-between">
-                        <span class="text-[11px] font-mono-system uppercase tracking-[0.24em] text-stone-500">Image moodboard</span>
-                        <iconify-icon class="text-3xl text-stone-400" icon="solar:gallery-wide-linear"></iconify-icon>
-                    </div>
-                    <div class="grid grid-cols-3 gap-2">
-                        <img class="aspect-square object-cover rounded-2xl" src="./digital-assets/4b7d31e6-5b45-47eb-9853-96bbb9_bf1aa5f9d2cf.webp" alt="Moodboard 1" />
-                        <img class="aspect-square object-cover rounded-2xl" src="./digital-assets/5ea5c0e9-3047-467a-9eaf-e49f65_6a6f021d85c6.webp" alt="Moodboard 2" />
-                        <img class="aspect-square object-cover rounded-2xl" src="./digital-assets/ddab06d9-9060-42a5-9052-32121a_7062a2506669.webp" alt="Moodboard 3" />
-                    </div>
-                </div>
-
-                <div class="p-6 md:p-8 flex flex-col justify-between reveal delay-700">
-                    <div class="text-[11px] font-mono-system uppercase tracking-[0.24em] text-stone-500">Interaction note</div>
-                    <div class="glass-panel rounded-[1.5rem] p-5">
-                        <div class="font-display text-3xl tracking-[-0.06em] mb-3">Elegant, but not passive.</div>
-                        <p class="text-sm leading-relaxed text-stone-700">Every section repeats background motion, reveal choreography and hover shine so the system feels consistent under pressure.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="border-b border-black/10 overflow-hidden py-5 bg-white/35">
-            <div class="marquee-container">
-                <div class="marquee-content">
-                    <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-500 mx-8">Transparent headlines</span>
-                    <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-400 mx-8">•</span>
-                    <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-500 mx-8">Soft glass surfaces</span>
-                    <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-400 mx-8">•</span>
-                    <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-500 mx-8">Beam buttons</span>
-                    <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-400 mx-8">•</span>
-                    <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-500 mx-8">Flashlight hover</span>
-                    <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-400 mx-8">•</span>
-                </div>
-                <div class="marquee-content">
-                    <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-500 mx-8">Transparent headlines</span>
-                    <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-400 mx-8">•</span>
-                    <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-500 mx-8">Soft glass surfaces</span>
-                    <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-400 mx-8">•</span>
-                    <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-500 mx-8">Beam buttons</span>
-                    <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-400 mx-8">•</span>
-                    <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-500 mx-8">Flashlight hover</span>
-                    <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-400 mx-8">•</span>
-                </div>
-            </div>
-        </div>
-
-        <section class="section-shell z-10" id="typography">
-            <div class="p-8 md:p-12 border-b border-black/10">
-                <span class="text-[11px] font-mono-system uppercase tracking-[0.28em] text-stone-500 block mb-3 reveal">02 / Foundations</span>
-                <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-                    <h2 class="font-display text-5xl md:text-7xl tracking-[-0.08em] reveal">Typography</h2>
-                    <p class="max-w-xl text-stone-700 text-base md:text-lg leading-relaxed reveal delay-100">Primary is Inter for clean body rhythm, Space Grotesk for expressive headlines and Geist Mono for precision metadata. All three are loaded through the same asset strategy already present in the referenced templates.</p>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-[0.9fr,1.1fr]">
-                <div class="p-8 md:p-12 border-b lg:border-b-0 lg:border-r border-black/10">
-                    <div class="space-y-4 reveal">
-                        <div class="spec-card rounded-[2rem] p-6 md:p-8">
-                            <div class="text-[11px] font-mono-system uppercase tracking-[0.24em] text-stone-500 mb-4">Font loading strategy</div>
-                            <div class="space-y-4 text-sm md:text-[15px] leading-relaxed text-stone-700">
-                                <p><strong>Primary:</strong> `Inter`, sans-serif</p>
-                                <p><strong>Display:</strong> `Space Grotesk`, `Inter`, sans-serif</p>
-                                <p><strong>Monospace:</strong> `Geist Mono`, `SFMono-Regular`, monospace</p>
-                                <p><strong>Loading:</strong> local CSS assets linked from referenced templates, weight ranges reused from those files, no new external dependency introduced.</p>
-                            </div>
-                        </div>
-                        <div class="spec-card rounded-[2rem] p-6 md:p-8">
-                            <div class="text-[11px] font-mono-system uppercase tracking-[0.24em] text-stone-500 mb-4">Usage intent</div>
-                            <div class="space-y-3 text-sm md:text-[15px] leading-relaxed text-stone-700">
-                                <p>Display roles use transparent or ultra-tight lettering for premium sections and hero moments.</p>
-                                <p>Body roles stay neutral and highly legible for specs, descriptions and long-form guidelines.</p>
-                                <p>Mono roles are reserved for measurements, metadata, labels and token naming.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="grid grid-cols-1">
-                        <div class="grid grid-cols-1 md:grid-cols-12 p-8 md:p-10 border-b border-black/10 items-end reveal">
-                            <div class="md:col-span-3 text-[11px] font-mono-system uppercase tracking-[0.22em] text-stone-400 mb-4 md:mb-0">H1 / Display</div>
-                            <div class="md:col-span-6">
-                                <div class="font-display text-6xl md:text-8xl tracking-[-0.08em] leading-none">Transparent Future</div>
-                            </div>
-                            <div class="md:col-span-3 text-sm text-stone-500">700 / 96px / 0.96 / -0.08em / none</div>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-12 p-8 md:p-10 border-b border-black/10 items-end reveal delay-100">
-                            <div class="md:col-span-3 text-[11px] font-mono-system uppercase tracking-[0.22em] text-stone-400 mb-4 md:mb-0">H2</div>
-                            <div class="md:col-span-6">
-                                <div class="font-display text-5xl md:text-6xl tracking-[-0.07em] leading-[1.02]">System narratives that still feel architectural.</div>
-                            </div>
-                            <div class="md:col-span-3 text-sm text-stone-500">600 / 60px / 1.02 / -0.07em / none</div>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-12 p-8 md:p-10 border-b border-black/10 items-end reveal delay-200">
-                            <div class="md:col-span-3 text-[11px] font-mono-system uppercase tracking-[0.22em] text-stone-400 mb-4 md:mb-0">H3</div>
-                            <div class="md:col-span-6">
-                                <div class="font-display text-4xl md:text-5xl tracking-[-0.06em] leading-[1.05]">Section titles with clear hierarchy.</div>
-                            </div>
-                            <div class="md:col-span-3 text-sm text-stone-500">600 / 48px / 1.05 / -0.06em / none</div>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-12 p-8 md:p-10 border-b border-black/10 items-end reveal delay-300">
-                            <div class="md:col-span-3 text-[11px] font-mono-system uppercase tracking-[0.22em] text-stone-400 mb-4 md:mb-0">H4 / H5 / H6</div>
-                            <div class="md:col-span-6">
-                                <div class="space-y-2">
-                                    <div class="text-3xl font-semibold tracking-[-0.04em]">H4 32px / 600 / 1.1</div>
-                                    <div class="text-2xl font-semibold tracking-[-0.03em]">H5 24px / 600 / 1.15</div>
-                                    <div class="text-xl font-semibold tracking-[-0.02em]">H6 20px / 600 / 1.2</div>
-                                </div>
-                            </div>
-                            <div class="md:col-span-3 text-sm text-stone-500">Inter / none / tightened tracking</div>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-12 p-8 md:p-10 border-b border-black/10 reveal delay-400">
-                            <div class="md:col-span-3 text-[11px] font-mono-system uppercase tracking-[0.22em] text-stone-400 mb-4 md:mb-0">Body-lg</div>
-                            <div class="md:col-span-6">
-                                <p class="text-xl leading-relaxed text-stone-800">20px / 400 / 1.65 / 0 / none. For intros, panels and large explanatory copy.</p>
-                            </div>
-                            <div class="md:col-span-3 text-sm text-stone-500">Inter / 400 / 20px / 1.65</div>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-12 p-8 md:p-10 border-b border-black/10 reveal delay-500">
-                            <div class="md:col-span-3 text-[11px] font-mono-system uppercase tracking-[0.22em] text-stone-400 mb-4 md:mb-0">Body / Body-sm</div>
-                            <div class="md:col-span-6">
-                                <p class="text-base leading-7 text-stone-700 mb-2">16px / 400 / 1.7 / 0 / none. Default product copy.</p>
-                                <p class="text-sm leading-6 text-stone-600">14px / 400 / 1.6 / 0 / none. Secondary explanations and dense specs.</p>
-                            </div>
-                            <div class="md:col-span-3 text-sm text-stone-500">Inter / 16px and 14px</div>
-                        </div>
-                        <div class="grid grid-cols-1 md:grid-cols-12 p-8 md:p-10 reveal delay-700">
-                            <div class="md:col-span-3 text-[11px] font-mono-system uppercase tracking-[0.22em] text-stone-400 mb-4 md:mb-0">Captions / Labels / Helper</div>
-                            <div class="md:col-span-6">
-                                <div class="text-xs font-mono-system uppercase tracking-[0.24em] text-stone-500 mb-2">Caption 12px / 500 / 1.5 / 0.24em / uppercase</div>
-                                <div class="text-[11px] font-mono-system uppercase tracking-[0.28em] text-stone-400">Helper 11px / 500 / 1.45 / 0.28em / uppercase</div>
-                            </div>
-                            <div class="md:col-span-3 text-sm text-stone-500">Geist Mono / numeric labels</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section-shell z-10" id="colors">
-            <div class="p-8 md:p-12 border-b border-black/10">
-                <span class="text-[11px] font-mono-system uppercase tracking-[0.28em] text-stone-500 block mb-3 reveal">03 / Foundations</span>
-                <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-                    <h2 class="font-display text-5xl md:text-7xl tracking-[-0.08em] reveal">Color System</h2>
-                    <p class="max-w-xl text-stone-700 text-base md:text-lg leading-relaxed reveal delay-100">Mostly neutral and white, but not sterile. Accent warmth comes from champagne glow, semantic roles stay restrained, and gradients are used as light rather than decoration-first color blocks.</p>
-                </div>
-            </div>
-
-            <div class="p-8 md:p-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-                <div class="token-swatch relative rounded-[2rem] overflow-hidden aspect-[1.1/1] p-6 flex flex-col justify-between text-stone-900 reveal" style="background:#f4f3ee;">
-                    <div class="text-[11px] font-mono-system uppercase tracking-[0.22em]">Primary Neutral</div>
-                    <div>
-                        <div class="font-display text-3xl tracking-[-0.05em]">#F4F3EE</div>
-                        <div class="text-sm leading-6 mt-2">RGB 244 243 238 / HSL 48 18% 95% / semantic: neutral background</div>
-                        <div class="text-sm leading-6">Use: background, elevated panels, canvas. Contrast intent: AA/AAA with primary ink.</div>
-                    </div>
-                </div>
-                <div class="token-swatch relative rounded-[2rem] overflow-hidden aspect-[1.1/1] p-6 flex flex-col justify-between text-white reveal delay-100" style="background:#171717;">
-                    <div class="text-[11px] font-mono-system uppercase tracking-[0.22em]">Primary Ink</div>
-                    <div>
-                        <div class="font-display text-3xl tracking-[-0.05em]">#171717</div>
-                        <div class="text-sm leading-6 mt-2 text-stone-300">RGB 23 23 23 / HSL 0 0% 9% / semantic: primary text</div>
-                        <div class="text-sm leading-6 text-stone-300">Use: text, active buttons, icons, borders. Contrast intent: AAA on base white.</div>
-                    </div>
-                </div>
-                <div class="token-swatch relative rounded-[2rem] overflow-hidden aspect-[1.1/1] p-6 flex flex-col justify-between text-stone-900 reveal delay-200" style="background:linear-gradient(135deg,#f2e6cc 0%, #d8b986 100%);">
-                    <div class="text-[11px] font-mono-system uppercase tracking-[0.22em]">Accent Warm</div>
-                    <div>
-                        <div class="font-display text-3xl tracking-[-0.05em]">#E9D9B9</div>
-                        <div class="text-sm leading-6 mt-2">RGB 233 217 185 / HSL 40 49% 82% / semantic: accent and decorative glow</div>
-                        <div class="text-sm leading-6">Use: hover beams, highlight halos, hero glow, premium tags, subtle surfaces.</div>
-                    </div>
-                </div>
-                <div class="token-swatch relative rounded-[2rem] overflow-hidden aspect-[1.1/1] p-6 flex flex-col justify-between text-stone-900 reveal delay-300" style="background:#8d877c;">
-                    <div class="text-[11px] font-mono-system uppercase tracking-[0.22em] text-white">Secondary Neutral</div>
-                    <div class="text-white">
-                        <div class="font-display text-3xl tracking-[-0.05em]">#8D877C</div>
-                        <div class="text-sm leading-6 mt-2">RGB 141 135 124 / HSL 39 7% 52% / semantic: secondary text and borders</div>
-                        <div class="text-sm leading-6">Use: labels, dividers, disabled text, icon resting states.</div>
-                    </div>
-                </div>
-                <div class="token-swatch relative rounded-[2rem] overflow-hidden aspect-[1.1/1] p-6 flex flex-col justify-between text-white reveal delay-400" style="background:linear-gradient(135deg,#0f9f6f 0%, #063f2f 100%);">
-                    <div class="text-[11px] font-mono-system uppercase tracking-[0.22em]">Success</div>
-                    <div>
-                        <div class="font-display text-3xl tracking-[-0.05em]">#0F9F6F</div>
-                        <div class="text-sm leading-6 mt-2 text-emerald-50">RGB 15 159 111 / HSL 160 83% 34% / semantic: feedback positive</div>
-                        <div class="text-sm leading-6 text-emerald-50">Use: status pills, confirmations, active indicators, accessible dark-on-light support.</div>
-                    </div>
-                </div>
-                <div class="token-swatch relative rounded-[2rem] overflow-hidden aspect-[1.1/1] p-6 flex flex-col justify-between text-white reveal delay-500" style="background:linear-gradient(135deg,#cf5240 0%, #7b2d24 100%);">
-                    <div class="text-[11px] font-mono-system uppercase tracking-[0.22em]">Danger</div>
-                    <div>
-                        <div class="font-display text-3xl tracking-[-0.05em]">#CF5240</div>
-                        <div class="text-sm leading-6 mt-2 text-red-50">RGB 207 82 64 / HSL 8 60% 53% / semantic: destructive feedback</div>
-                        <div class="text-sm leading-6 text-red-50">Use: error surfaces, destructive action states, validation. Pair with white text.</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 border-t border-black/10">
-                <div class="p-8 md:p-12 border-b md:border-b-0 md:border-r border-black/10 reveal">
-                    <div class="text-[11px] font-mono-system uppercase tracking-[0.24em] text-stone-500 mb-4">Opacity variants & gradients</div>
-                    <div class="space-y-4 text-sm md:text-[15px] leading-relaxed text-stone-700">
-                        <p>`rgba(255,255,255,0.82)` is the strong glass panel. `rgba(255,255,255,0.5-0.68)` is the default frosted layer.</p>
-                        <p>`rgba(23,23,23,0.14)` and `0.24` drive border hierarchy and separator strength.</p>
-                        <p>Gradients participate mainly as atmospheric light: white-to-transparent, champagne-to-transparent, and occasional ink-to-transparent overlays over imagery.</p>
-                    </div>
-                </div>
-                <div class="p-8 md:p-12 reveal delay-100">
-                    <div class="text-[11px] font-mono-system uppercase tracking-[0.24em] text-stone-500 mb-4">Contextual usage rules</div>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm md:text-[15px] text-stone-700">
-                        <div class="spec-card rounded-2xl p-4">Text: ink primary, stone secondary, mono for labels, white only on dark buttons or image overlays.</div>
-                        <div class="spec-card rounded-2xl p-4">Background: neutral white base, blurred white panels, warm accent only as tint or glow.</div>
-                        <div class="spec-card rounded-2xl p-4">Border: muted low-opacity neutral, strengthen on hover or focus, never fully black on the white canvas.</div>
-                        <div class="spec-card rounded-2xl p-4">Hover / Active / Disabled: lift + glow / inverted ink or accent / desaturated secondary with reduced contrast.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section-shell z-10" id="components">
-            <div class="p-8 md:p-12 border-b border-black/10">
-                <span class="text-[11px] font-mono-system uppercase tracking-[0.28em] text-stone-500 block mb-3 reveal">04 / UI Components</span>
-                <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-                    <h2 class="font-display text-5xl md:text-7xl tracking-[-0.08em] reveal">Components</h2>
-                    <p class="max-w-xl text-stone-700 text-base md:text-lg leading-relaxed reveal delay-100">Each component block contains a live visual pattern and a condensed spec, so the page reads like a functioning system rather than a static inventory.</p>
-                </div>
-            </div>
-
-            <div class="p-8 md:p-12 grid grid-cols-1 xl:grid-cols-2 gap-6">
-                <div class="component-card rounded-[2rem] p-6 md:p-8 reveal">
-                    <div class="flex items-center justify-between mb-8">
-                        <div class="text-[11px] font-mono-system uppercase tracking-[0.24em] text-stone-500">Buttons</div>
-                        <iconify-icon class="text-2xl text-stone-400" icon="solar:cursor-linear"></iconify-icon>
-                    </div>
-                    <div class="flex flex-wrap gap-4 mb-8">
-                        <button class="beam-button group">
-                            <span></span>
-                            <span>
-                                <span class="text-sm font-semibold uppercase tracking-[0.16em]">Primary</span>
-                                <iconify-icon class="text-lg group-hover:translate-x-1 transition-transform" icon="solar:arrow-right-linear"></iconify-icon>
-                            </span>
-                        </button>
-                        <button class="ghost-button rounded-full px-6 py-4 border border-black/10 glass-panel text-sm font-semibold uppercase tracking-[0.16em]">Secondary</button>
-                        <button class="chip-button rounded-full px-5 py-3 bg-stone-200 text-stone-700 text-xs font-mono-system uppercase tracking-[0.22em] hover:bg-stone-900 hover:text-white">Ghost chip</button>
-                    </div>
-                    <p class="text-sm leading-7 text-stone-700">Spec: pill radius, strong ink primary, shimmer beam hover, outline glass alternative, disabled version should reduce contrast and remove lift animation.</p>
-                </div>
-
-                <div class="component-card rounded-[2rem] p-6 md:p-8 reveal delay-100 flashlight-card" onmousemove="const rect = this.getBoundingClientRect(); this.style.setProperty('--mouse-x', `${event.clientX - rect.left}px`); this.style.setProperty('--mouse-y', `${event.clientY - rect.top}px`);">
-                    <div class="flex items-center justify-between mb-8">
-                        <div class="text-[11px] font-mono-system uppercase tracking-[0.24em] text-stone-500">Inputs</div>
-                        <iconify-icon class="text-2xl text-stone-400" icon="solar:pen-linear"></iconify-icon>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-                        <label class="glass-panel rounded-[1.5rem] px-5 py-4 block">
-                            <span class="text-[11px] font-mono-system uppercase tracking-[0.22em] text-stone-400 block mb-2">Text field</span>
-                            <input class="w-full bg-transparent outline-none text-stone-900 placeholder:text-stone-400" placeholder="Type system intent" />
-                        </label>
-                        <label class="glass-panel rounded-[1.5rem] px-5 py-4 block">
-                            <span class="text-[11px] font-mono-system uppercase tracking-[0.22em] text-stone-400 block mb-2">Search</span>
-                            <div class="flex items-center gap-3">
-                                <iconify-icon class="text-lg text-stone-400" icon="solar:magnifer-linear"></iconify-icon>
-                                <input class="w-full bg-transparent outline-none text-stone-900 placeholder:text-stone-400" placeholder="Find tokens" />
-                            </div>
-                        </label>
-                    </div>
-                    <p class="text-sm leading-7 text-stone-700">Spec: glass background, 20px blur, soft outline, mono labels, input text in primary ink, focus should strengthen border and raise highlight.</p>
-                </div>
-
-                <div class="component-card rounded-[2rem] p-6 md:p-8 reveal delay-200">
-                    <div class="flex items-center justify-between mb-8">
-                        <div class="text-[11px] font-mono-system uppercase tracking-[0.24em] text-stone-500">Cards</div>
-                        <iconify-icon class="text-2xl text-stone-400" icon="solar:widget-2-linear"></iconify-icon>
-                    </div>
-                    <div class="group rounded-[1.8rem] overflow-hidden border border-black/10 bg-[#f4f3ee] hover:bg-white transition-colors duration-500">
-                        <div class="grid grid-cols-1 md:grid-cols-2 min-h-[280px]">
-                            <div class="p-6 md:p-8 flex flex-col justify-between">
-                                <div>
-                                    <div class="flex items-center gap-3 mb-4">
-                                        <span class="text-[11px] font-mono-system uppercase tracking-[0.22em] text-stone-400">Card 01</span>
-                                        <div class="w-10 h-px bg-stone-300"></div>
-                                        <span class="text-[11px] font-mono-system uppercase tracking-[0.22em] text-stone-500">Case Study</span>
-                                    </div>
-                                    <h3 class="font-display text-4xl tracking-[-0.06em] mb-4 group-hover:translate-x-2 transition-transform duration-500">Motion-ready narrative cards.</h3>
-                                    <p class="text-sm leading-7 text-stone-700">Card shells combine image crop, metadata rail, soft hover shift and tone inversion without breaking the white system.</p>
-                                </div>
-                                <a class="inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.16em]" href="#motion">
-                                    Inspect motion
-                                    <iconify-icon class="text-lg" icon="solar:arrow-right-up-linear"></iconify-icon>
-                                </a>
-                            </div>
-                            <div class="relative overflow-hidden bg-stone-100">
-                                <img class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" src="./digital-assets/4b7d31e6-5b45-47eb-9853-96bbb9_bf1aa5f9d2cf.webp" alt="Card preview" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="component-card rounded-[2rem] p-6 md:p-8 reveal delay-300">
-                    <div class="flex items-center justify-between mb-8">
-                        <div class="text-[11px] font-mono-system uppercase tracking-[0.24em] text-stone-500">Navbar & Sections</div>
-                        <iconify-icon class="text-2xl text-stone-400" icon="solar:hamburger-menu-linear"></iconify-icon>
-                    </div>
-                    <div class="glass-panel rounded-[1.7rem] overflow-hidden">
-                        <div class="px-5 py-4 border-b border-black/10 flex justify-between items-center">
-                            <span class="text-[11px] font-mono-system uppercase tracking-[0.24em] text-stone-500">Sticky nav demo</span>
-                            <span class="text-[11px] font-mono-system uppercase tracking-[0.24em] text-stone-400">Border + blur + center brand</span>
-                        </div>
-                        <div class="p-6 md:p-8 bg-[linear-gradient(180deg,rgba(255,255,255,0.5),rgba(233,217,185,0.18))]">
-                            <div class="font-display text-3xl tracking-[-0.05em] mb-2">Section shells keep motion in the background.</div>
-                            <p class="text-sm leading-7 text-stone-700">Spec: edge borders, fogged panels, roomy spacing, repeated ambient layer and reveal choreography across all folds.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="component-card rounded-[2rem] p-6 md:p-8 reveal delay-400">
-                    <div class="flex items-center justify-between mb-8">
-                        <div class="text-[11px] font-mono-system uppercase tracking-[0.24em] text-stone-500">Modal</div>
-                        <iconify-icon class="text-2xl text-stone-400" icon="solar:sidebar-minimalistic-linear"></iconify-icon>
-                    </div>
-                    <div class="rounded-[2rem] p-4 bg-black/20">
-                        <div class="glass-panel rounded-[1.8rem] p-6 md:p-8 max-w-md mx-auto">
-                            <div class="flex justify-between items-start mb-6">
-                                <div>
-                                    <div class="text-[11px] font-mono-system uppercase tracking-[0.22em] text-stone-500 mb-2">Modal / Elevated</div>
-                                    <div class="font-display text-3xl tracking-[-0.05em]">Review token changes</div>
-                                </div>
-                                <button class="w-10 h-10 rounded-full border border-black/10 flex items-center justify-center"><iconify-icon icon="solar:close-circle-linear"></iconify-icon></button>
-                            </div>
-                            <p class="text-sm leading-7 text-stone-700 mb-6">Spec: strongest blur, deepest shadow, generous radius, quiet header rail and high-contrast actions.</p>
-                            <div class="flex gap-3">
-                                <button class="rounded-full px-5 py-3 bg-stone-900 text-white text-xs font-mono-system uppercase tracking-[0.2em]">Approve</button>
-                                <button class="rounded-full px-5 py-3 border border-black/10 text-xs font-mono-system uppercase tracking-[0.2em]">Dismiss</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="component-card rounded-[2rem] p-6 md:p-8 reveal delay-500">
-                    <div class="flex items-center justify-between mb-8">
-                        <div class="text-[11px] font-mono-system uppercase tracking-[0.24em] text-stone-500">Badges & Tooltips</div>
-                        <iconify-icon class="text-2xl text-stone-400" icon="solar:tag-linear"></iconify-icon>
-                    </div>
-                    <div class="flex flex-wrap gap-4 items-center mb-8">
-                        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-stone-900 text-white text-xs font-mono-system uppercase tracking-[0.2em]"><span class="w-2 h-2 rounded-full bg-emerald-400"></span>Live</span>
-                        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel text-xs font-mono-system uppercase tracking-[0.2em]">Glass badge</span>
-                        <div class="tooltip-trigger relative">
-                            <button class="rounded-full px-4 py-2 border border-black/10 text-xs font-mono-system uppercase tracking-[0.2em]">Hover tooltip</button>
-                            <div class="tooltip-box absolute left-0 top-full mt-3 w-56 glass-panel rounded-2xl p-4 text-sm leading-6 text-stone-700">
-                                Tooltips use the same white blur surface, thin border and low-angle shadow as micro-panels.
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-sm leading-7 text-stone-700">Spec: badges stay compact and uppercase; tooltips animate with spring-like entrance and should never use hard black rectangles in this system.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section-shell z-10" id="icons">
-            <div class="p-8 md:p-12 border-b border-black/10">
-                <span class="text-[11px] font-mono-system uppercase tracking-[0.28em] text-stone-500 block mb-3 reveal">05 / Asset Language</span>
-                <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-                    <h2 class="font-display text-5xl md:text-7xl tracking-[-0.08em] reveal">Icons</h2>
-                    <p class="max-w-xl text-stone-700 text-base md:text-lg leading-relaxed reveal delay-100">The system inherits the thin, architectural Solar icon language already used in the base files. Stroke icons pair naturally with the transparent lettering and restrained white palette.</p>
-                </div>
-            </div>
-            <div class="p-8 md:p-12 grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-4 md:gap-6">
-                <div class="flashlight-card rounded-[1.75rem] p-6 text-center reveal" onmousemove="const rect = this.getBoundingClientRect(); this.style.setProperty('--mouse-x', `${event.clientX - rect.left}px`); this.style.setProperty('--mouse-y', `${event.clientY - rect.top}px`);"><iconify-icon class="text-4xl mb-4 text-stone-700" icon="solar:atom-linear"></iconify-icon><div class="text-[11px] font-mono-system uppercase tracking-[0.2em] text-stone-500">Brand</div></div>
-                <div class="flashlight-card rounded-[1.75rem] p-6 text-center reveal delay-100" onmousemove="const rect = this.getBoundingClientRect(); this.style.setProperty('--mouse-x', `${event.clientX - rect.left}px`); this.style.setProperty('--mouse-y', `${event.clientY - rect.top}px`);"><iconify-icon class="text-4xl mb-4 text-stone-700" icon="solar:palette-linear"></iconify-icon><div class="text-[11px] font-mono-system uppercase tracking-[0.2em] text-stone-500">Color</div></div>
-                <div class="flashlight-card rounded-[1.75rem] p-6 text-center reveal delay-200" onmousemove="const rect = this.getBoundingClientRect(); this.style.setProperty('--mouse-x', `${event.clientX - rect.left}px`); this.style.setProperty('--mouse-y', `${event.clientY - rect.top}px`);"><iconify-icon class="text-4xl mb-4 text-stone-700" icon="solar:layers-minimalistic-linear"></iconify-icon><div class="text-[11px] font-mono-system uppercase tracking-[0.2em] text-stone-500">Layers</div></div>
-                <div class="flashlight-card rounded-[1.75rem] p-6 text-center reveal delay-300" onmousemove="const rect = this.getBoundingClientRect(); this.style.setProperty('--mouse-x', `${event.clientX - rect.left}px`); this.style.setProperty('--mouse-y', `${event.clientY - rect.top}px`);"><iconify-icon class="text-4xl mb-4 text-stone-700" icon="solar:pen-new-square-linear"></iconify-icon><div class="text-[11px] font-mono-system uppercase tracking-[0.2em] text-stone-500">Edit</div></div>
-                <div class="flashlight-card rounded-[1.75rem] p-6 text-center reveal delay-400" onmousemove="const rect = this.getBoundingClientRect(); this.style.setProperty('--mouse-x', `${event.clientX - rect.left}px`); this.style.setProperty('--mouse-y', `${event.clientY - rect.top}px`);"><iconify-icon class="text-4xl mb-4 text-stone-700" icon="solar:widget-2-linear"></iconify-icon><div class="text-[11px] font-mono-system uppercase tracking-[0.2em] text-stone-500">UI</div></div>
-                <div class="flashlight-card rounded-[1.75rem] p-6 text-center reveal delay-500" onmousemove="const rect = this.getBoundingClientRect(); this.style.setProperty('--mouse-x', `${event.clientX - rect.left}px`); this.style.setProperty('--mouse-y', `${event.clientY - rect.top}px`);"><iconify-icon class="text-4xl mb-4 text-stone-700" icon="solar:star-fall-linear"></iconify-icon><div class="text-[11px] font-mono-system uppercase tracking-[0.2em] text-stone-500">Glow</div></div>
-                <div class="flashlight-card rounded-[1.75rem] p-6 text-center reveal delay-700" onmousemove="const rect = this.getBoundingClientRect(); this.style.setProperty('--mouse-x', `${event.clientX - rect.left}px`); this.style.setProperty('--mouse-y', `${event.clientY - rect.top}px`);"><iconify-icon class="text-4xl mb-4 text-stone-700" icon="solar:bolt-circle-linear"></iconify-icon><div class="text-[11px] font-mono-system uppercase tracking-[0.2em] text-stone-500">Motion</div></div>
-                <div class="flashlight-card rounded-[1.75rem] p-6 text-center reveal delay-700" onmousemove="const rect = this.getBoundingClientRect(); this.style.setProperty('--mouse-x', `${event.clientX - rect.left}px`); this.style.setProperty('--mouse-y', `${event.clientY - rect.top}px`);"><iconify-icon class="text-4xl mb-4 text-stone-700" icon="solar:check-circle-linear"></iconify-icon><div class="text-[11px] font-mono-system uppercase tracking-[0.2em] text-stone-500">Feedback</div></div>
-            </div>
-        </section>
-
-        <section class="section-shell z-10 overflow-hidden" id="motion">
-            <div class="p-8 md:p-12 border-b border-black/10">
-                <span class="text-[11px] font-mono-system uppercase tracking-[0.28em] text-stone-500 block mb-3 reveal">06 / Motion</span>
-                <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-                    <h2 class="font-display text-5xl md:text-7xl tracking-[-0.08em] reveal">Animations</h2>
-                    <p class="max-w-xl text-stone-700 text-base md:text-lg leading-relaxed reveal delay-100">The motion layer intentionally repeats across backgrounds, section entrances, cards and buttons. This is where the Gemini influence appears most clearly.</p>
-                </div>
-            </div>
-
-            <div class="py-8 md:py-10 border-b border-black/10 bg-white/35">
-                <div class="marquee-container">
-                    <div class="marquee-content">
-                        <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-500 mx-8">Reveal / blur-in</span>
-                        <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-400 mx-8">•</span>
-                        <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-500 mx-8">Masked text slide</span>
-                        <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-400 mx-8">•</span>
-                        <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-500 mx-8">Parallax drift</span>
-                        <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-400 mx-8">•</span>
-                        <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-500 mx-8">Beam shimmer</span>
-                    </div>
-                    <div class="marquee-content">
-                        <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-500 mx-8">Reveal / blur-in</span>
-                        <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-400 mx-8">•</span>
-                        <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-500 mx-8">Masked text slide</span>
-                        <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-400 mx-8">•</span>
-                        <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-500 mx-8">Parallax drift</span>
-                        <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-400 mx-8">•</span>
-                        <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-500 mx-8">Beam shimmer</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="p-8 md:p-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="component-card rounded-[2rem] p-6 reveal">
-                    <div class="text-[11px] font-mono-system uppercase tracking-[0.24em] text-stone-500 mb-3">Reveal</div>
-                    <div class="space-y-4">
-                        <div class="glass-panel rounded-2xl p-4 reveal active">
-                            <div class="font-display text-2xl tracking-[-0.05em]">Scroll blur-in</div>
-                        </div>
-                        <p class="text-sm leading-7 text-stone-700">Duration 1s, easing `cubic-bezier(0.16, 1, 0.3, 1)`, translateY 2rem, blur 10px to 0.</p>
-                    </div>
-                </div>
-                <div class="component-card rounded-[2rem] p-6 reveal delay-100">
-                    <div class="text-[11px] font-mono-system uppercase tracking-[0.24em] text-stone-500 mb-3">Masked text</div>
-                    <div class="font-display text-5xl tracking-[-0.08em] leading-none reveal-active">
-                        <span class="text-reveal-wrapper"><span class="text-reveal-content">Motion</span></span><br />
-                        <span class="text-reveal-wrapper"><span class="text-reveal-content delay-100 hero-glass-stroke">System</span></span>
-                    </div>
-                    <p class="text-sm leading-7 text-stone-700 mt-4">Used for hero headlines and key section titles that need theatrical entrance.</p>
-                </div>
-                <div class="component-card rounded-[2rem] p-6 reveal delay-200">
-                    <div class="text-[11px] font-mono-system uppercase tracking-[0.24em] text-stone-500 mb-3">Pointer glow</div>
-                    <div class="flashlight-card rounded-[1.75rem] p-6 min-h-[220px] flex flex-col justify-end" onmousemove="const rect = this.getBoundingClientRect(); this.style.setProperty('--mouse-x', `${event.clientX - rect.left}px`); this.style.setProperty('--mouse-y', `${event.clientY - rect.top}px`);">
-                        <iconify-icon class="text-4xl text-stone-600 mb-6" icon="solar:lightbulb-linear"></iconify-icon>
-                        <div class="font-display text-3xl tracking-[-0.05em]">Flashlight hover</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <footer class="relative z-10 px-8 md:px-12 py-14 bg-stone-900 text-stone-200 overflow-hidden">
-            <div class="relative z-10 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
-                <div>
-                    <div class="text-[11px] font-mono-system uppercase tracking-[0.28em] text-stone-500 mb-3">Antigravity / System File</div>
-                    <div class="font-display text-4xl md:text-6xl tracking-[-0.08em]">White, transparent, animated.</div>
-                </div>
-                <div class="max-w-md text-sm leading-7 text-stone-400">
-                    Designed as a stronger, more expressive derivative of the Digital Architect system, while borrowing motion, beam, flashlight and carousel ideas from the Gemini references.
-                </div>
-            </div>
-            <div class="absolute right-0 bottom-[-3rem] text-[5rem] md:text-[10rem] font-display tracking-[-0.1em] text-white/5 pointer-events-none select-none">ANTIGRAVITY</div>
-        </footer>
+    <!-- Decorative column guides (same as DS) -->
+    <div class="absolute inset-0 pointer-events-none grid grid-cols-1 md:grid-cols-12 gap-0 z-0 h-full w-full opacity-60">
+        <div class="hidden md:block md:col-span-3 border-r border-black/5 h-full"></div>
+        <div class="hidden md:block md:col-span-3 border-r border-black/5 h-full"></div>
+        <div class="hidden md:block md:col-span-3 border-r border-black/5 h-full"></div>
+        <div class="hidden md:block md:col-span-3 h-full"></div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            setTimeout(() => {
-                document.querySelector('header')?.classList.add('loaded');
-            }, 100);
+    <!-- ═══════════════════════════════════════════════════════════
+         NAVIGATION
+    ═══════════════════════════════════════════════════════════ -->
+    <header class="relative z-50 border-b border-black/10 sticky top-0 bg-[rgba(244,243,238,0.84)] backdrop-blur-xl nav-load">
+        <div class="px-4 md:px-8 py-5 flex items-center justify-between gap-4">
+            <div class="flex items-center gap-5 md:gap-8">
+                <a class="text-[11px] font-medium tracking-[0.28em] uppercase hover:text-stone-500 transition-colors" href="#treatments">Tratamentos</a>
+                <a class="text-[11px] font-medium tracking-[0.28em] uppercase hover:text-stone-500 transition-colors hidden md:block" href="#process">Processo</a>
+                <a class="text-[11px] font-medium tracking-[0.28em] uppercase hover:text-stone-500 transition-colors hidden md:block" href="#results">Resultados</a>
+            </div>
+            <!-- Centred wordmark -->
+            <div class="absolute left-1/2 -translate-x-1/2 flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full border border-black/10 glass-panel flex items-center justify-center">
+                    <iconify-icon class="text-xl" icon="solar:tooth-linear"></iconify-icon>
+                </div>
+                <div>
+                    <div class="font-display text-sm md:text-base font-semibold tracking-tight">AUREA DENTAL</div>
+                    <div class="text-[10px] tracking-[0.28em] uppercase text-stone-500 font-mono-system">Reabilitação Oral</div>
+                </div>
+            </div>
+            <div class="flex items-center gap-3 md:gap-6">
+                <a class="text-[11px] font-medium tracking-[0.28em] uppercase hidden md:block hover:text-stone-500 transition-colors" href="#contact">Contato</a>
+                <a class="ghost-button inline-flex items-center gap-2 px-5 py-3 rounded-full border border-black/12 glass-panel text-[11px] font-semibold uppercase tracking-[0.18em]" href="#contact">
+                    Agendar
+                </a>
+            </div>
+        </div>
+    </header>
 
-            setTimeout(() => {
-                document.getElementById('hero-title')?.classList.add('reveal-active');
-            }, 450);
+    <!-- ═══════════════════════════════════════════════════════════
+         HERO — video + headline + CTAs
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="relative z-10 grid grid-cols-1 md:grid-cols-12 min-h-[100svh] border-b border-black/10" id="hero">
 
-            setTimeout(() => {
-                document.querySelectorAll('.hero-badge, .hero-stat, .metric-card').forEach((el) => {
-                    el.classList.add('active');
-                });
-            }, 550);
+        <!-- Left: copy (5 cols) -->
+        <div class="col-span-1 md:col-span-5 relative overflow-hidden border-b md:border-b-0 md:border-r border-black/10 bg-[rgba(250,249,244,0.5)]">
 
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                        if (entry.target.querySelector('.text-reveal-content') || entry.target.matches('h1, h2, h3')) {
-                            entry.target.classList.add('reveal-active');
-                        }
-                    }
-                });
-            }, { threshold: 0.15 });
+            <div class="floating-orb w-72 h-72 bg-[#e9d9b9]/35 -top-16 -left-16"></div>
+            <div class="floating-orb w-52 h-52 bg-white/65 bottom-24 right-4" style="animation-delay:-4s;"></div>
 
-            document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
-            document.querySelectorAll('h1, h2, h3').forEach((el) => {
-                if (el.querySelector('.text-reveal-content')) observer.observe(el);
-            });
+            <div class="relative z-10 p-6 md:p-10 lg:p-14 min-h-[60svh] md:min-h-[100svh] flex flex-col justify-between gap-8">
 
-            const style = document.createElement('style');
-            style.textContent = `
-                .animate-on-scroll { animation-play-state: paused !important; }
-                .animate-on-scroll.animate { animation-play-state: running !important; }
-            `;
-            document.head.appendChild(style);
+                <!-- Top labels -->
+                <div class="flex items-center justify-between gap-4 flex-wrap">
+                    <div class="label-pill px-4 py-2 rounded-full text-[11px] font-mono-system uppercase tracking-[0.25em] text-stone-600 reveal delay-100">
+                        Próteses Premium · Est. 2008
+                    </div>
+                    <div class="hidden md:flex items-center gap-2 glass-panel rounded-full px-4 py-2 reveal delay-200">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse flex-shrink-0"></span>
+                        <span class="text-[11px] font-mono-system uppercase tracking-[0.22em] text-stone-600">Aceitando Pacientes</span>
+                    </div>
+                </div>
 
-            if (!window.__inViewIO) {
-                window.__inViewIO = new IntersectionObserver((entries) => {
-                    entries.forEach((entry) => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('animate');
-                            window.__inViewIO.unobserve(entry.target);
-                        }
-                    });
-                }, { threshold: 0.2 });
+                <!-- Hero headline -->
+                <div>
+                    <div class="mb-5 reveal delay-200">
+                        <span class="text-[11px] font-mono-system uppercase tracking-[0.32em] text-stone-500">01 / Reabilitação Oral</span>
+                    </div>
+
+                    <h1 class="font-display text-[3.8rem] leading-[0.87] md:text-[5.5rem] lg:text-[6.8rem] font-semibold tracking-[-0.08em]" id="hero-title">
+                        <span class="text-reveal-wrapper"><span class="text-reveal-content">Pre</span></span><span class="text-reveal-wrapper"><span class="text-reveal-content hero-ink-stroke">ci</span></span><span class="text-reveal-wrapper"><span class="text-reveal-content">são</span></span><br />
+                        <span class="text-reveal-wrapper"><span class="text-reveal-content delay-100">Re</span></span><span class="text-reveal-wrapper"><span class="text-reveal-content delay-100 hero-glass-stroke">staurada</span></span>
+                    </h1>
+
+                    <!-- Description panel -->
+                    <div class="mt-8 glass-panel rounded-[2rem] p-6 md:p-8 reveal delay-300">
+                        <p class="text-lg md:text-xl text-stone-800 leading-relaxed">
+                            Próteses dentárias artesanais e reabilitação total — projetadas com precisão digital e instaladas com excelência clínica.
+                        </p>
+                        <div class="mt-7 flex flex-wrap items-center gap-4">
+                            <button class="beam-button group">
+                                <span></span>
+                                <span>
+                                    <span class="text-sm font-semibold uppercase tracking-[0.16em]">Agendar Consulta</span>
+                                    <iconify-icon class="text-xl group-hover:translate-x-1 transition-transform" icon="solar:arrow-right-linear"></iconify-icon>
+                                </span>
+                            </button>
+                            <a class="ghost-button inline-flex items-center gap-3 px-6 py-4 rounded-full border border-black/10 glass-panel text-sm font-semibold uppercase tracking-[0.16em]" href="#treatments">
+                                Nossos Casos
+                                <iconify-icon class="text-lg" icon="solar:layers-minimalistic-linear"></iconify-icon>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom micro-stats -->
+                <div class="grid grid-cols-3 gap-3 reveal delay-500">
+                    <div class="glass-panel rounded-[1.5rem] p-4">
+                        <div class="font-display text-3xl tracking-[-0.08em]">18+</div>
+                        <div class="text-[10px] font-mono-system uppercase tracking-[0.22em] text-stone-500 mt-1">Anos de precisão</div>
+                    </div>
+                    <div class="glass-panel rounded-[1.5rem] p-4">
+                        <div class="font-display text-3xl tracking-[-0.08em]">4k</div>
+                        <div class="text-[10px] font-mono-system uppercase tracking-[0.22em] text-stone-500 mt-1">Sorrisos restaurados</div>
+                    </div>
+                    <div class="glass-panel rounded-[1.5rem] p-4">
+                        <div class="font-display text-3xl tracking-[-0.08em]">99%</div>
+                        <div class="text-[10px] font-mono-system uppercase tracking-[0.22em] text-stone-500 mt-1">Satisfação</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Right: video centrepiece (7 cols) -->
+        <div class="col-span-1 md:col-span-7 relative overflow-hidden bg-stone-100/60">
+
+            <!-- Layered ambient -->
+            <div class="absolute inset-0 bg-gradient-to-br from-stone-200/40 via-transparent to-[#e9d9b9]/25 z-10 pointer-events-none"></div>
+            <div class="floating-orb w-80 h-80 bg-[#e9d9b9]/28 top-8 right-8 z-10" style="animation-delay:-2s;"></div>
+            <div class="floating-orb w-44 h-44 bg-white/55 bottom-12 left-12 z-10" style="animation-delay:-6s;"></div>
+
+            <!-- Video + metadata -->
+            <div class="relative z-20 p-6 md:p-10 lg:p-14 min-h-[55svh] md:min-h-[100svh] flex flex-col justify-center items-center gap-6">
+
+                <!-- Radial glow behind video -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[75%] aspect-video rounded-full bg-[radial-gradient(ellipse,rgba(233,217,185,0.32),transparent_68%)] pointer-events-none" style="animation: video-glow 6s ease-in-out infinite;"></div>
+
+                <!-- ▶ VIDEO — dental plate transition -->
+                <div class="video-frame w-full max-w-[780px] aspect-video reveal delay-200">
+                    <video autoplay muted loop playsinline>
+                        <source src="./Dental_mouthguard.mp4" type="video/mp4" />
+                    </video>
+                </div>
+
+                <!-- Caption -->
+                <div class="flex items-center gap-4 reveal delay-400">
+                    <div class="w-8 h-px bg-stone-400/60"></div>
+                    <span class="text-[11px] font-mono-system uppercase tracking-[0.28em] text-stone-500">Placa dental · transição de prótese</span>
+                    <div class="w-8 h-px bg-stone-400/60"></div>
+                </div>
+
+                <!-- Floating metadata cards -->
+                <div class="absolute top-6 left-6 md:top-10 md:left-10 metric-card rounded-[1.5rem] p-4 z-30 reveal delay-300 hidden md:block">
+                    <div class="text-[10px] font-mono-system uppercase tracking-[0.22em] text-stone-500 mb-2">Material Clínico</div>
+                    <div class="font-display text-2xl tracking-[-0.06em]">Zircônia</div>
+                    <div class="text-xs text-stone-500 mt-1">Biocompatível · ISO 13485</div>
+                </div>
+
+                <div class="absolute bottom-10 right-6 md:bottom-14 md:right-10 metric-card rounded-[1.5rem] p-4 z-30 reveal delay-500 hidden md:block">
+                    <div class="text-[10px] font-mono-system uppercase tracking-[0.22em] text-stone-500 mb-2">Precisão CAD/CAM</div>
+                    <div class="flex items-center gap-3 mt-1">
+                        <div class="font-display text-2xl tracking-[-0.06em]">±20μm</div>
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse flex-shrink-0"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         MARQUEE STRIP
+    ═══════════════════════════════════════════════════════════ -->
+    <div class="border-b border-black/10 overflow-hidden py-5 bg-white/35">
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-500 mx-8">Implantes Dentários</span>
+                <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-400 mx-8">•</span>
+                <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-500 mx-8">Reabilitação Total</span>
+                <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-400 mx-8">•</span>
+                <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-500 mx-8">Próteses em Zircônia</span>
+                <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-400 mx-8">•</span>
+                <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-500 mx-8">Design Digital do Sorriso</span>
+                <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-400 mx-8">•</span>
+                <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-500 mx-8">Fresagem CAD/CAM</span>
+                <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-400 mx-8">•</span>
+                <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-500 mx-8">Reabilitação Oral</span>
+                <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-400 mx-8">•</span>
+            </div>
+            <div class="marquee-content">
+                <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-500 mx-8">Implantes Dentários</span>
+                <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-400 mx-8">•</span>
+                <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-500 mx-8">Reabilitação Total</span>
+                <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-400 mx-8">•</span>
+                <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-500 mx-8">Próteses em Zircônia</span>
+                <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-400 mx-8">•</span>
+                <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-500 mx-8">Design Digital do Sorriso</span>
+                <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-400 mx-8">•</span>
+                <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-500 mx-8">Fresagem CAD/CAM</span>
+                <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-400 mx-8">•</span>
+                <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-500 mx-8">Reabilitação Oral</span>
+                <span class="text-sm font-mono-system uppercase tracking-[0.25em] text-stone-400 mx-8">•</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         BENEFITS — 4 flashlight cards
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="section-shell z-10" id="treatments">
+        <div class="p-8 md:p-12 border-b border-black/10">
+            <span class="text-[11px] font-mono-system uppercase tracking-[0.28em] text-stone-500 block mb-3 reveal">02 / Por que Aurea</span>
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+                <h2 class="font-display text-5xl md:text-7xl tracking-[-0.08em] reveal">
+                    <span class="text-reveal-wrapper"><span class="text-reveal-content">Feito</span></span><br />
+                    <span class="text-reveal-wrapper"><span class="text-reveal-content delay-100 hero-glass-stroke">para durar.</span></span>
+                </h2>
+                <p class="max-w-xl text-stone-700 text-base md:text-lg leading-relaxed reveal delay-100">
+                    Cada prótese é projetada com precisão digital, fabricada em materiais de grau médico e instalada para função duradoura e estética natural.
+                </p>
+            </div>
+        </div>
+
+        <div class="p-8 md:p-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+
+            <div class="flashlight-card rounded-[2rem] p-7 reveal"
+                 onmousemove="const r=this.getBoundingClientRect();this.style.setProperty('--mouse-x',`${event.clientX-r.left}px`);this.style.setProperty('--mouse-y',`${event.clientY-r.top}px`)">
+                <div class="flex items-center justify-between mb-10">
+                    <div class="w-12 h-12 rounded-2xl bg-stone-100 border border-black/8 flex items-center justify-center">
+                        <iconify-icon class="text-2xl text-stone-700" icon="solar:scanner-linear"></iconify-icon>
+                    </div>
+                    <span class="text-[11px] font-mono-system uppercase tracking-[0.22em] text-stone-400">01</span>
+                </div>
+                <div class="font-display text-2xl tracking-[-0.05em] mb-3">Precisão Digital</div>
+                <p class="text-sm leading-7 text-stone-600">Escaneamento intraoral 3D e fresagem CAD/CAM com precisão abaixo de 20 micrômetros — um encaixe que nenhum método analógico consegue alcançar.</p>
+            </div>
+
+            <div class="flashlight-card rounded-[2rem] p-7 reveal delay-100"
+                 onmousemove="const r=this.getBoundingClientRect();this.style.setProperty('--mouse-x',`${event.clientX-r.left}px`);this.style.setProperty('--mouse-y',`${event.clientY-r.top}px`)">
+                <div class="flex items-center justify-between mb-10">
+                    <div class="w-12 h-12 rounded-2xl bg-stone-100 border border-black/8 flex items-center justify-center">
+                        <iconify-icon class="text-2xl text-stone-700" icon="solar:shield-minimalistic-linear"></iconify-icon>
+                    </div>
+                    <span class="text-[11px] font-mono-system uppercase tracking-[0.22em] text-stone-400">02</span>
+                </div>
+                <div class="font-display text-2xl tracking-[-0.05em] mb-3">Materiais de Grau Médico</div>
+                <p class="text-sm leading-7 text-stone-600">Apenas materiais biocompatíveis com certificação ISO: zircônia monolítica, dissilicato de lítio e estruturas em liga de titânio.</p>
+            </div>
+
+            <div class="flashlight-card rounded-[2rem] p-7 reveal delay-200"
+                 onmousemove="const r=this.getBoundingClientRect();this.style.setProperty('--mouse-x',`${event.clientX-r.left}px`);this.style.setProperty('--mouse-y',`${event.clientY-r.top}px`)">
+                <div class="flex items-center justify-between mb-10">
+                    <div class="w-12 h-12 rounded-2xl bg-stone-100 border border-black/8 flex items-center justify-center">
+                        <iconify-icon class="text-2xl text-stone-700" icon="solar:heart-pulse-linear"></iconify-icon>
+                    </div>
+                    <span class="text-[11px] font-mono-system uppercase tracking-[0.22em] text-stone-400">03</span>
+                </div>
+                <div class="font-display text-2xl tracking-[-0.05em] mb-3">Recuperação Confortável</div>
+                <p class="text-sm leading-7 text-stone-600">Protocolos minimamente invasivos e planos de cicatrização guiados reduzem o tempo de recuperação — a maioria dos pacientes retoma a rotina em até 48 horas.</p>
+            </div>
+
+            <div class="flashlight-card rounded-[2rem] p-7 reveal delay-300"
+                 onmousemove="const r=this.getBoundingClientRect();this.style.setProperty('--mouse-x',`${event.clientX-r.left}px`);this.style.setProperty('--mouse-y',`${event.clientY-r.top}px`)">
+                <div class="flex items-center justify-between mb-10">
+                    <div class="w-12 h-12 rounded-2xl bg-stone-100 border border-black/8 flex items-center justify-center">
+                        <iconify-icon class="text-2xl text-stone-700" icon="solar:star-shine-linear"></iconify-icon>
+                    </div>
+                    <span class="text-[11px] font-mono-system uppercase tracking-[0.22em] text-stone-400">04</span>
+                </div>
+                <div class="font-display text-2xl tracking-[-0.05em] mb-3">Resultados Duradouros</div>
+                <p class="text-sm leading-7 text-stone-600">Nossas restaurações em zircônia têm garantia estrutural de 15 anos — projetadas para décadas de uso confiante e natural.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         PROCESS — numbered steps + metrics
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="section-shell z-10" id="process">
+        <div class="p-8 md:p-12 border-b border-black/10">
+            <span class="text-[11px] font-mono-system uppercase tracking-[0.28em] text-stone-500 block mb-3 reveal">03 / Jornada de Tratamento</span>
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+                <h2 class="font-display text-5xl md:text-7xl tracking-[-0.08em] reveal">
+                    <span class="text-reveal-wrapper"><span class="text-reveal-content">Do scan</span></span><br />
+                    <span class="text-reveal-wrapper"><span class="text-reveal-content delay-100 hero-glass-stroke">ao sorriso.</span></span>
+                </h2>
+                <p class="max-w-xl text-stone-700 text-base md:text-lg leading-relaxed reveal delay-100">
+                    Um processo estruturado e transparente em que cada fase é explicada previamente, documentada e entregue dentro do padrão clínico.
+                </p>
+            </div>
+        </div>
+
+        <div class="p-8 md:p-12 grid grid-cols-1 lg:grid-cols-[1fr,1.5fr] gap-10 lg:gap-0">
+
+            <!-- Step list -->
+            <div class="lg:pr-12 lg:border-r border-black/10">
+
+                <div class="py-8 border-b border-black/10 flex gap-6 items-start reveal">
+                    <div class="step-number">01</div>
+                    <div>
+                        <div class="font-display text-xl tracking-[-0.05em] mb-2">Consulta Inicial</div>
+                        <p class="text-sm leading-7 text-stone-600">Exame oral completo, radiografias digitais e tomografia CBCT para mapear volume ósseo, anatomia e opções de tratamento.</p>
+                    </div>
+                </div>
+
+                <div class="py-8 border-b border-black/10 flex gap-6 items-start reveal delay-100">
+                    <div class="step-number">02</div>
+                    <div>
+                        <div class="font-display text-xl tracking-[-0.05em] mb-2">Planejamento Digital</div>
+                        <p class="text-sm leading-7 text-stone-600">O escaneamento intraoral 3D alimenta uma sessão de design CAD — você aprova a forma, tonalidade e proporção exatas antes de qualquer fabricação.</p>
+                    </div>
+                </div>
+
+                <div class="py-8 border-b border-black/10 flex gap-6 items-start reveal delay-200">
+                    <div class="step-number">03</div>
+                    <div>
+                        <div class="font-display text-xl tracking-[-0.05em] mb-2">Fabricação Própria</div>
+                        <p class="text-sm leading-7 text-stone-600">Fresagem CAD/CAM e caracterização por nossos ceramistas especialistas. Materiais sinterizados e glazeados em nosso laboratório próprio.</p>
+                    </div>
+                </div>
+
+                <div class="py-8 border-b border-black/10 flex gap-6 items-start reveal delay-300">
+                    <div class="step-number">04</div>
+                    <div>
+                        <div class="font-display text-xl tracking-[-0.05em] mb-2">Instalação Precisa</div>
+                        <p class="text-sm leading-7 text-stone-600">Ajuste em nível cirúrgico com análise de oclusão em tempo real e refinamentos no mesmo dia até o resultado ser impecável.</p>
+                    </div>
+                </div>
+
+                <div class="py-8 flex gap-6 items-start reveal delay-400">
+                    <div class="step-number">05</div>
+                    <div>
+                        <div class="font-display text-xl tracking-[-0.05em] mb-2">Pós-tratamento e Garantia</div>
+                        <p class="text-sm leading-7 text-stone-600">Retornos programados, orientação de higiene e garantia estrutural por escrito. Seu resultado está protegido a longo prazo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: metric showcase -->
+            <div class="lg:pl-12 grid grid-cols-1 md:grid-cols-2 gap-4 content-start">
+
+                <div class="metric-card rounded-[2rem] p-8 md:col-span-2 reveal delay-100 flashlight-card"
+                     onmousemove="const r=this.getBoundingClientRect();this.style.setProperty('--mouse-x',`${event.clientX-r.left}px`);this.style.setProperty('--mouse-y',`${event.clientY-r.top}px`)">
+                    <div class="text-[11px] font-mono-system uppercase tracking-[0.22em] text-stone-500 mb-10">Dados de resultado clínico</div>
+                    <div class="grid grid-cols-3 gap-6">
+                        <div>
+                            <div class="font-display text-4xl md:text-5xl tracking-[-0.08em] mb-1">98%</div>
+                            <div class="text-xs font-mono-system uppercase tracking-[0.18em] text-stone-500">Sucesso em implantes em 10 anos</div>
+                        </div>
+                        <div>
+                            <div class="font-display text-4xl md:text-5xl tracking-[-0.08em] mb-1">1,2d</div>
+                            <div class="text-xs font-mono-system uppercase tracking-[0.18em] text-stone-500">Tempo médio de recuperação</div>
+                        </div>
+                        <div>
+                            <div class="font-display text-4xl md:text-5xl tracking-[-0.08em] mb-1">0</div>
+                            <div class="text-xs font-mono-system uppercase tracking-[0.18em] text-stone-500">Retrabalhos nos últimos 200 casos</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metric-card rounded-[2rem] p-7 reveal delay-200">
+                    <div class="flex items-center justify-between mb-8">
+                        <span class="text-[11px] font-mono-system uppercase tracking-[0.22em] text-stone-500">Precisão do scan</span>
+                        <iconify-icon class="text-2xl text-stone-400" icon="solar:target-linear"></iconify-icon>
+                    </div>
+                    <div class="font-display text-4xl tracking-[-0.08em]">±20μm</div>
+                    <div class="text-xs font-mono-system uppercase tracking-[0.18em] text-stone-500 mt-2">Tolerância CAD/CAM</div>
+                    <div class="mt-6 flex gap-2 items-end">
+                        <span class="w-3 h-6 rounded-full bg-stone-200 animate-[animationIn_0.9s_ease-out_0.1s_both]"></span>
+                        <span class="w-3 h-10 rounded-full bg-stone-300 animate-[animationIn_0.9s_ease-out_0.2s_both]"></span>
+                        <span class="w-3 h-14 rounded-full bg-stone-500 animate-[animationIn_0.9s_ease-out_0.3s_both]"></span>
+                        <span class="w-3 h-20 rounded-full bg-stone-900 animate-[animationIn_0.9s_ease-out_0.4s_both]"></span>
+                    </div>
+                </div>
+
+                <div class="metric-card rounded-[2rem] p-7 reveal delay-300">
+                    <div class="flex items-center justify-between mb-8">
+                        <span class="text-[11px] font-mono-system uppercase tracking-[0.22em] text-stone-500">Garantia do material</span>
+                        <iconify-icon class="text-2xl text-stone-400" icon="solar:shield-check-linear"></iconify-icon>
+                    </div>
+                    <div class="font-display text-4xl tracking-[-0.08em]">15yr</div>
+                    <div class="text-xs font-mono-system uppercase tracking-[0.18em] text-stone-500 mt-2">Garantia estrutural</div>
+                    <div class="mt-6 w-full h-2 rounded-full bg-stone-100 overflow-hidden">
+                        <div class="h-full rounded-full bg-stone-900" style="width:92%; animation: animationIn 1.2s ease-out 0.6s both;"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         SPECIALTY AREAS — visual cards
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="section-shell z-10" id="results">
+        <div class="p-8 md:p-12 border-b border-black/10">
+            <span class="text-[11px] font-mono-system uppercase tracking-[0.28em] text-stone-500 block mb-3 reveal">04 / Áreas de Especialidade</span>
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+                <h2 class="font-display text-5xl md:text-7xl tracking-[-0.08em] reveal">
+                    <span class="text-reveal-wrapper"><span class="text-reveal-content">O que</span></span><br />
+                    <span class="text-reveal-wrapper"><span class="text-reveal-content delay-100 hero-glass-stroke">restauramos.</span></span>
+                </h2>
+                <p class="max-w-xl text-stone-700 text-base md:text-lg leading-relaxed reveal delay-100">
+                    Da substituição de um único dente à reabilitação oral completa — cada caso recebe o mesmo rigor clínico e atenção estética.
+                </p>
+            </div>
+        </div>
+
+        <div class="p-8 md:p-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+
+            <div class="component-card rounded-[2rem] overflow-hidden reveal">
+                <div class="relative h-52 bg-gradient-to-br from-stone-200 to-stone-100 flex items-center justify-center border-b border-black/10">
+                    <div class="floating-orb w-32 h-32 bg-[#e9d9b9]/55"></div>
+                    <iconify-icon class="text-6xl text-stone-500 relative z-10" icon="solar:tooth-linear"></iconify-icon>
+                    <span class="absolute top-4 right-4 text-[10px] font-mono-system uppercase tracking-[0.22em] text-stone-400">Mais solicitado</span>
+                </div>
+                <div class="p-6 md:p-8">
+                    <div class="font-display text-2xl tracking-[-0.05em] mb-3">Implantes Dentários</div>
+                    <p class="text-sm leading-7 text-stone-600 mb-5">Substituição da raiz por titânio fundido diretamente ao osso — o mais próximo de um dente natural em função e sensação.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-stone-100 text-[11px] font-mono-system uppercase tracking-[0.18em] text-stone-600">Cirúrgico</span>
+                        <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-stone-100 text-[11px] font-mono-system uppercase tracking-[0.18em] text-stone-600">Permanente</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="component-card rounded-[2rem] overflow-hidden reveal delay-100">
+                <div class="relative h-52 bg-gradient-to-br from-[#f2e6cc] to-stone-200 flex items-center justify-center border-b border-black/10">
+                    <div class="floating-orb w-40 h-40 bg-white/45" style="animation-delay:-3s;"></div>
+                    <iconify-icon class="text-6xl text-stone-600 relative z-10" icon="solar:smile-circle-linear"></iconify-icon>
+                    <span class="absolute top-4 right-4 text-[10px] font-mono-system uppercase tracking-[0.22em] text-stone-400">Arcada completa</span>
+                </div>
+                <div class="p-6 md:p-8">
+                    <div class="font-display text-2xl tracking-[-0.05em] mb-3">All-on-4 / All-on-6</div>
+                    <p class="text-sm leading-7 text-stone-600 mb-5">Reabilitação de arcada completa com ponte fixa em zircônia sobre 4 ou 6 implantes. Uma sessão, função imediata.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-stone-100 text-[11px] font-mono-system uppercase tracking-[0.18em] text-stone-600">Arcada total</span>
+                        <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-stone-100 text-[11px] font-mono-system uppercase tracking-[0.18em] text-stone-600">Ponte fixa</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="component-card rounded-[2rem] overflow-hidden reveal delay-200">
+                <div class="relative h-52 bg-gradient-to-br from-stone-100 to-stone-200 flex items-center justify-center border-b border-black/10">
+                    <div class="floating-orb w-28 h-28 bg-[#e9d9b9]/60" style="animation-delay:-5s;"></div>
+                    <iconify-icon class="text-6xl text-stone-500 relative z-10" icon="solar:layers-minimalistic-linear"></iconify-icon>
+                    <span class="absolute top-4 right-4 text-[10px] font-mono-system uppercase tracking-[0.22em] text-stone-400">Premium</span>
+
+                </div>
+                <div class="p-6 md:p-8">
+                    <div class="font-display text-2xl tracking-[-0.05em] mb-3">Facetas de Porcelana</div>
+                    <p class="text-sm leading-7 text-stone-600 mb-5">Lâminas ultrafinas de dissilicato de lítio coladas à face anterior dos dentes — para correções de forma, tonalidade e simetria com aparência completamente natural.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-stone-100 text-[11px] font-mono-system uppercase tracking-[0.18em] text-stone-600">Estético</span>
+                        <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-stone-100 text-[11px] font-mono-system uppercase tracking-[0.18em] text-stone-600">Mínimo desgaste</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="component-card rounded-[2rem] overflow-hidden reveal delay-300">
+                <div class="relative h-52 bg-gradient-to-br from-stone-200 to-[#ebe7de] flex items-center justify-center border-b border-black/10">
+                    <div class="floating-orb w-36 h-36 bg-white/50" style="animation-delay:-1s;"></div>
+                    <iconify-icon class="text-6xl text-stone-600 relative z-10" icon="solar:buildings-2-linear"></iconify-icon>
+                </div>
+                <div class="p-6 md:p-8">
+                    <div class="font-display text-2xl tracking-[-0.05em] mb-3">Coroas em Zircônia</div>
+                    <p class="text-sm leading-7 text-stone-600 mb-5">Coroas monolíticas de contorno completo fresadas em bloco sólido de zircônia. Resistentes a fratura, translucidez natural, sem infraestrutura metálica.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-stone-100 text-[11px] font-mono-system uppercase tracking-[0.18em] text-stone-600">Zircônia</span>
+                        <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-stone-100 text-[11px] font-mono-system uppercase tracking-[0.18em] text-stone-600">CAD/CAM</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="component-card rounded-[2rem] overflow-hidden reveal delay-400">
+                <div class="relative h-52 bg-gradient-to-br from-[#f0e6cc]/60 to-stone-100 flex items-center justify-center border-b border-black/10">
+                    <div class="floating-orb w-40 h-40 bg-[#c9a96a]/20" style="animation-delay:-7s;"></div>
+                    <iconify-icon class="text-6xl text-stone-500 relative z-10" icon="solar:medical-kit-linear"></iconify-icon>
+                </div>
+                <div class="p-6 md:p-8">
+                    <div class="font-display text-2xl tracking-[-0.05em] mb-3">Próteses Removíveis</div>
+                    <p class="text-sm leading-7 text-stone-600 mb-5">Dentaduras totais e parciais projetadas para conforto e estética natural — incluindo sobredentaduras com suporte de implantes.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-stone-100 text-[11px] font-mono-system uppercase tracking-[0.18em] text-stone-600">Removível</span>
+                        <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-stone-100 text-[11px] font-mono-system uppercase tracking-[0.18em] text-stone-600">Retida em implante</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="component-card rounded-[2rem] overflow-hidden reveal delay-500">
+                <div class="relative h-52 bg-gradient-to-br from-stone-900 to-stone-700 flex items-center justify-center border-b border-black/10">
+                    <div class="floating-orb w-32 h-32 bg-white/10" style="animation-delay:-2s;"></div>
+                    <iconify-icon class="text-6xl text-white/70 relative z-10" icon="solar:chat-square-like-linear"></iconify-icon>
+                    <span class="absolute top-4 right-4 text-[10px] font-mono-system uppercase tracking-[0.22em] text-white/40">Ponto de partida</span>
+                </div>
+                <div class="p-6 md:p-8">
+                    <div class="font-display text-2xl tracking-[-0.05em] mb-3">Design Digital do Sorriso</div>
+                    <p class="text-sm leading-7 text-stone-600 mb-5">Simulação completa do sorriso com análise facial, fotografia odontológica e enceramento 3D — veja o resultado antes de o tratamento começar.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-stone-100 text-[11px] font-mono-system uppercase tracking-[0.18em] text-stone-600">Planejamento</span>
+                        <span class="inline-flex items-center px-3 py-1.5 rounded-full bg-stone-100 text-[11px] font-mono-system uppercase tracking-[0.18em] text-stone-600">Visualização</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         TRUST & CREDIBILITY
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="section-shell z-10">
+        <div class="p-8 md:p-12 border-b border-black/10">
+            <span class="text-[11px] font-mono-system uppercase tracking-[0.28em] text-stone-500 block mb-3 reveal">05 / Padrões</span>
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+                <h2 class="font-display text-5xl md:text-7xl tracking-[-0.08em] reveal">
+                    <span class="text-reveal-wrapper"><span class="text-reveal-content">Fundamentado</span></span><br />
+                    <span class="text-reveal-wrapper"><span class="text-reveal-content delay-100 hero-glass-stroke">em evidência.</span></span>
+                </h2>
+                <p class="max-w-xl text-stone-700 text-base md:text-lg leading-relaxed reveal delay-100">
+                    Cada protocolo, escolha de material e decisão clínica é respaldada por literatura revisada por pares e padrões de processo certificados pelo ISO.
+                </p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2">
+
+            <!-- Credentials -->
+            <div class="p-8 md:p-12 border-b lg:border-b-0 lg:border-r border-black/10 space-y-4">
+                <div class="spec-card rounded-[2rem] p-6 md:p-8 reveal">
+                    <div class="text-[11px] font-mono-system uppercase tracking-[0.24em] text-stone-500 mb-5">Certificações e Padrões</div>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0 mt-1.5"></span>
+                            <span class="text-sm leading-6 text-stone-700">ISO 13485 — Sistema de Gestão da Qualidade para Dispositivos Médicos</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0 mt-1.5"></span>
+                            <span class="text-sm leading-6 text-stone-700">Marcação CE — Conformidade europeia para dispositivos protéticos</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0 mt-1.5"></span>
+                            <span class="text-sm leading-6 text-stone-700">Membro EAO — Associação Europeia de Osseointegração</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0 mt-1.5"></span>
+                            <span class="text-sm leading-6 text-stone-700">Straumann Gold Center — parceiro certificado em instalação de implantes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-card rounded-[2rem] p-6 md:p-8 reveal delay-100">
+                    <div class="text-[11px] font-mono-system uppercase tracking-[0.24em] text-stone-500 mb-5">Equipe Clínica</div>
+                    <div class="space-y-5">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-stone-200 flex-shrink-0 border border-black/10 flex items-center justify-center">
+                                <iconify-icon class="text-lg text-stone-600" icon="solar:user-linear"></iconify-icon>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-sm text-stone-800">Dr. E. Corrêa, MSc, PhD</div>
+                                <div class="text-[11px] text-stone-500 font-mono-system uppercase tracking-[0.18em] mt-0.5">Reabilitação Oral · Implantodontia</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full bg-stone-200 flex-shrink-0 border border-black/10 flex items-center justify-center">
+                                <iconify-icon class="text-lg text-stone-600" icon="solar:user-linear"></iconify-icon>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-sm text-stone-800">Dr. A. Mendes, MSc</div>
+                                <div class="text-[11px] text-stone-500 font-mono-system uppercase tracking-[0.18em] mt-0.5">Prótese Digital · CAD/CAM</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Patient perspectives -->
+            <div class="p-8 md:p-12 space-y-4">
+                <div class="glass-panel rounded-[2rem] p-6 md:p-8 reveal delay-200">
+                    <div class="text-[11px] font-mono-system uppercase tracking-[0.24em] text-stone-500 mb-6">Perspectivas de Pacientes</div>
+                    <div class="space-y-6">
+                        <div class="border-b border-black/10 pb-6">
+                            <p class="text-base leading-7 text-stone-700 mb-4">"Depois de 12 anos de insegurança, o All-on-4 mudou tudo. A equipe foi precisa, o resultado foi imediato, e não me arrependo nem um dia."</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-stone-200 border border-black/10 flex items-center justify-center flex-shrink-0">
+                                    <iconify-icon class="text-sm text-stone-600" icon="solar:user-linear"></iconify-icon>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-semibold text-stone-800">M.F., 54</div>
+                                    <div class="text-[11px] font-mono-system uppercase tracking-[0.18em] text-stone-400">All-on-4 · Arcada completa</div>
+                                </div>
+                                <div class="ml-auto flex gap-0.5">
+                                    <iconify-icon class="text-sm text-amber-400" icon="solar:star-bold"></iconify-icon>
+                                    <iconify-icon class="text-sm text-amber-400" icon="solar:star-bold"></iconify-icon>
+                                    <iconify-icon class="text-sm text-amber-400" icon="solar:star-bold"></iconify-icon>
+                                    <iconify-icon class="text-sm text-amber-400" icon="solar:star-bold"></iconify-icon>
+                                    <iconify-icon class="text-sm text-amber-400" icon="solar:star-bold"></iconify-icon>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-base leading-7 text-stone-700 mb-4">"A simulação digital me mostrou exatamente como ficaria antes de qualquer intervenção. Esse nível de transparência fez toda a diferença."</p>
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-stone-200 border border-black/10 flex items-center justify-center flex-shrink-0">
+                                    <iconify-icon class="text-sm text-stone-600" icon="solar:user-linear"></iconify-icon>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-semibold text-stone-800">C.R., 38</div>
+                                    <div class="text-[11px] font-mono-system uppercase tracking-[0.18em] text-stone-400">Facetas · Design Digital do Sorriso</div>
+                                </div>
+                                <div class="ml-auto flex gap-0.5">
+                                    <iconify-icon class="text-sm text-amber-400" icon="solar:star-bold"></iconify-icon>
+                                    <iconify-icon class="text-sm text-amber-400" icon="solar:star-bold"></iconify-icon>
+                                    <iconify-icon class="text-sm text-amber-400" icon="solar:star-bold"></iconify-icon>
+                                    <iconify-icon class="text-sm text-amber-400" icon="solar:star-bold"></iconify-icon>
+                                    <iconify-icon class="text-sm text-amber-400" icon="solar:star-bold"></iconify-icon>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-3 gap-4 reveal delay-300">
+                    <div class="metric-card rounded-[1.75rem] p-5 text-center">
+                        <div class="font-display text-3xl tracking-[-0.08em] mb-1">4,9</div>
+                        <div class="text-[10px] font-mono-system uppercase tracking-[0.18em] text-stone-500">Nota média</div>
+                    </div>
+                    <div class="metric-card rounded-[1.75rem] p-5 text-center">
+                        <div class="font-display text-3xl tracking-[-0.08em] mb-1">890+</div>
+                        <div class="text-[10px] font-mono-system uppercase tracking-[0.18em] text-stone-500">Avaliações</div>
+                    </div>
+                    <div class="metric-card rounded-[1.75rem] p-5 text-center">
+                        <div class="font-display text-3xl tracking-[-0.08em] mb-1">12</div>
+                        <div class="text-[10px] font-mono-system uppercase tracking-[0.18em] text-stone-500">Prêmios</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         FINAL CTA
+    ═══════════════════════════════════════════════════════════ -->
+    <section class="section-shell z-10 relative overflow-hidden" id="contact">
+
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,rgba(233,217,185,0.38),transparent_55%),radial-gradient(ellipse_at_72%_38%,rgba(255,255,255,0.78),transparent_40%)] pointer-events-none"></div>
+        <div class="floating-orb w-80 h-80 bg-[#e9d9b9]/22 -top-10 right-20"></div>
+        <div class="floating-orb w-56 h-56 bg-white/45 bottom-0 left-10" style="animation-delay:-5s;"></div>
+
+        <div class="relative z-10 p-8 md:p-12 lg:p-24 flex flex-col items-center text-center gap-10">
+
+            <div class="reveal">
+                <span class="text-[11px] font-mono-system uppercase tracking-[0.32em] text-stone-500">06 / Comece Sua Jornada</span>
+            </div>
+
+            <h2 class="font-display text-[2.8rem] md:text-[5.5rem] lg:text-[7.5rem] tracking-[-0.09em] leading-[0.88] max-w-5xl" id="cta-heading">
+                <span class="text-reveal-wrapper"><span class="text-reveal-content">Seu sorriso</span></span><br />
+                <span class="text-reveal-wrapper"><span class="text-reveal-content delay-100 hero-glass-stroke">de precisão</span></span>
+                <span class="text-reveal-wrapper"><span class="text-reveal-content delay-200"> começa aqui.</span></span>
+            </h2>
+
+            <div class="glass-panel rounded-[2rem] p-8 md:p-12 max-w-2xl w-full reveal delay-300">
+                <p class="text-lg text-stone-700 leading-relaxed mb-8">
+                    Agende uma consulta sem compromisso. Avaliaremos suas necessidades clínicas, mostraremos uma prévia digital do resultado e apresentaremos um plano de tratamento claro — tudo em uma única consulta.
+                </p>
+                <div class="flex flex-wrap items-center justify-center gap-4">
+                    <button class="beam-button group">
+                        <span></span>
+                        <span>
+                            <span class="text-sm font-semibold uppercase tracking-[0.16em]">Agendar Consulta</span>
+                            <iconify-icon class="text-xl group-hover:translate-x-1 transition-transform" icon="solar:calendar-linear"></iconify-icon>
+                        </span>
+                    </button>
+                    <a class="ghost-button inline-flex items-center gap-3 px-6 py-4 rounded-full border border-black/10 glass-panel text-sm font-semibold uppercase tracking-[0.16em]" href="tel:+1234567890">
+                        <iconify-icon class="text-lg" icon="solar:phone-linear"></iconify-icon>
+                        Ligar Agora
+                    </a>
+                </div>
+                <div class="mt-8 flex flex-wrap items-center justify-center gap-6">
+                    <div class="flex items-center gap-2">
+                        <iconify-icon class="text-base text-emerald-500" icon="solar:check-circle-linear"></iconify-icon>
+                        <span class="text-xs font-mono-system uppercase tracking-[0.18em] text-stone-500">Sem compromisso</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <iconify-icon class="text-base text-emerald-500" icon="solar:check-circle-linear"></iconify-icon>
+                        <span class="text-xs font-mono-system uppercase tracking-[0.18em] text-stone-500">Prévia digital do sorriso</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <iconify-icon class="text-base text-emerald-500" icon="solar:check-circle-linear"></iconify-icon>
+                        <span class="text-xs font-mono-system uppercase tracking-[0.18em] text-stone-500">Plano de tratamento por escrito</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         FOOTER
+    ═══════════════════════════════════════════════════════════ -->
+    <footer class="relative z-10 px-8 md:px-12 py-14 bg-stone-900 text-stone-200 overflow-hidden">
+        <div class="relative z-10 grid grid-cols-1 md:grid-cols-[1.6fr,1fr,1fr] gap-10 md:gap-8 mb-12">
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center">
+                        <iconify-icon class="text-lg text-white/70" icon="solar:tooth-linear"></iconify-icon>
+                    </div>
+                    <div class="font-display text-lg font-semibold tracking-tight">AUREA DENTAL</div>
+                </div>
+                <p class="text-sm leading-7 text-stone-400 max-w-xs">Reabilitação oral e próteses premium. Precisão, cuidado e resultados duradouros — do primeiro scan ao ajuste final.</p>
+            </div>
+            <div>
+                <div class="text-[11px] font-mono-system uppercase tracking-[0.28em] text-stone-500 mb-4">Tratamentos</div>
+                <ul class="space-y-2.5">
+                    <li><a class="text-sm text-stone-400 hover:text-white transition-colors" href="#">Implantes Dentários</a></li>
+                    <li><a class="text-sm text-stone-400 hover:text-white transition-colors" href="#">All-on-4 / All-on-6</a></li>
+                    <li><a class="text-sm text-stone-400 hover:text-white transition-colors" href="#">Coroas em Zircônia</a></li>
+                    <li><a class="text-sm text-stone-400 hover:text-white transition-colors" href="#">Facetas de Porcelana</a></li>
+                    <li><a class="text-sm text-stone-400 hover:text-white transition-colors" href="#">Design Digital do Sorriso</a></li>
+                </ul>
+            </div>
+            <div>
+                <div class="text-[11px] font-mono-system uppercase tracking-[0.28em] text-stone-500 mb-4">Clínica</div>
+                <ul class="space-y-2.5">
+                    <li><a class="text-sm text-stone-400 hover:text-white transition-colors" href="#">Nossa Equipe</a></li>
+                    <li><a class="text-sm text-stone-400 hover:text-white transition-colors" href="#">Tecnologia</a></li>
+                    <li><a class="text-sm text-stone-400 hover:text-white transition-colors" href="#">Certificações</a></li>
+                    <li><a class="text-sm text-stone-400 hover:text-white transition-colors" href="#">Avaliações</a></li>
+                    <li><a class="text-sm text-stone-400 hover:text-white transition-colors" href="#">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+            <div class="text-[11px] font-mono-system uppercase tracking-[0.22em] text-stone-600">© 2026 Aurea Dental · Todos os direitos reservados</div>
+            <div class="text-[11px] font-mono-system uppercase tracking-[0.22em] text-stone-600">ISO 13485 · Marcação CE · Membro EAO</div>
+        </div>
+        <!-- Ghost watermark -->
+        <div class="absolute right-0 bottom-[-2rem] text-[5rem] md:text-[10rem] font-display tracking-[-0.1em] text-white/[0.04] pointer-events-none select-none">AUREA</div>
+    </footer>
+
+</div><!-- /max-w wrapper -->
+
+<!-- ═══════════════════════════════════════════════════════════
+     SCRIPTS — identical logic pattern from design system
+═══════════════════════════════════════════════════════════ -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+
+    /* Nav entrance */
+    setTimeout(() => {
+        document.querySelector('header')?.classList.add('loaded');
+    }, 100);
+
+    /* Hero headline entrance */
+    setTimeout(() => {
+        document.getElementById('hero-title')?.classList.add('reveal-active');
+    }, 450);
+
+    /* Scroll-reveal observer */
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                if (entry.target.querySelector('.text-reveal-content') || entry.target.matches('h1,h2,h3')) {
+                    entry.target.classList.add('reveal-active');
+                }
+                observer.unobserve(entry.target);
             }
-
-            document.querySelectorAll('.animate-on-scroll').forEach((el) => window.__inViewIO.observe(el));
-
-            const slides = document.querySelectorAll('.carousel-slide');
-            let currentSlide = 0;
-            if (slides.length > 1) {
-                setInterval(() => {
-                    slides[currentSlide].classList.remove('active');
-                    currentSlide = (currentSlide + 1) % slides.length;
-                    slides[currentSlide].classList.add('active');
-                }, 5000);
-            }
-
-            const handleParallax = () => {
-                const scrolled = window.scrollY;
-                document.querySelectorAll('.parallax-img').forEach((el) => {
-                    const speed = parseFloat(el.dataset.speed || '0.04');
-                    el.style.transform = `translateY(${scrolled * speed}px)`;
-                });
-
-                document.querySelectorAll('.parallax-element').forEach((el) => {
-                    const speed = parseFloat(el.dataset.speed || '0.03');
-                    el.style.transform = `translateY(${scrolled * speed}px)`;
-                });
-            };
-
-            handleParallax();
-            window.addEventListener('scroll', handleParallax, { passive: true });
         });
-    </script>
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    document.querySelectorAll('h1,h2,h3').forEach((el) => {
+        if (el.querySelector('.text-reveal-content')) observer.observe(el);
+    });
+
+    /* CTA heading — needs its own observer (starts without reveal-active) */
+    const ctaHeading = document.getElementById('cta-heading');
+    if (ctaHeading) {
+        const ctaObs = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal-active');
+                    ctaObs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        ctaObs.observe(ctaHeading);
+    }
+
+    /* Parallax */
+    const handleParallax = () => {
+        const scrolled = window.scrollY;
+        document.querySelectorAll('.parallax-img').forEach((el) => {
+            el.style.transform = `translateY(${scrolled * parseFloat(el.dataset.speed || '0.04')}px)`;
+        });
+        document.querySelectorAll('.parallax-element').forEach((el) => {
+            el.style.transform = `translateY(${scrolled * parseFloat(el.dataset.speed || '0.03')}px)`;
+        });
+    };
+    handleParallax();
+    window.addEventListener('scroll', handleParallax, { passive: true });
+
+});
+</script>
 </body>
 </html>
