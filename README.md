@@ -24,7 +24,7 @@
 ✨ **Marquee Scrolling** — Infinite-loop treatment keyword carousel  
 ✨ **Flashlight Hover Cards** — Mouse-tracking radial glow on interaction  
 ✨ **Responsive Grid** — 12-column layout system with elegant gutters  
-✨ **Floating Ambient Elements** — Blurred orbs with sine-wave animation  
+✨ **Floating Ambient Elements** — Blurred orbs with sine-wave animation
 
 ---
 
@@ -53,14 +53,16 @@ preview/
 The Aurea Dental website **directly reuses 95%** of the Antigravity Design System:
 
 ### CSS Tokens (Unchanged)
+
 ```css
 --bg-main: #f4f3ee;
 --accent: #e9d9b9;
---shadow-md: 0 18px 40px rgba(24,19,10,.1);
---ease-out: cubic-bezier(.16,1,.3,1);
+--shadow-md: 0 18px 40px rgba(24, 19, 10, 0.1);
+--ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 ```
 
 ### Component Classes (Reused)
+
 - `.reveal` — scroll-triggered blur-in animation (1s, `--ease-out`)
 - `.text-reveal-wrapper / .text-reveal-content` — masked headline slide-up
 - `.glass-panel` — frosted background with blur and border
@@ -72,6 +74,7 @@ The Aurea Dental website **directly reuses 95%** of the Antigravity Design Syste
 - `.section-shell` — section wrapper with animated background drift
 
 ### Animations (Reused)
+
 ```
 @keyframes drift     { 0% { transform: translate3d(-2%,-1%,0) scale(1); } ... }
 @keyframes float     { 0%,100% { transform: translateY(0) translateX(0); } ... }
@@ -81,6 +84,7 @@ The Aurea Dental website **directly reuses 95%** of the Antigravity Design Syste
 ```
 
 ### Typography Stack
+
 - **Display**: Space Grotesk (bold, attention-grabbing)
 - **Body**: Inter (neutral, highly legible)
 - **Mono**: Geist Mono (labels, timestamps, metadata)
@@ -90,7 +94,9 @@ The Aurea Dental website **directly reuses 95%** of the Antigravity Design Syste
 ## 🌐 Pages
 
 ### `index.html` — Antigravity Design System
+
 Reference documentation page showcasing:
+
 - 12-column grid overlay and surface patterns
 - Complete color palette (18+ tokens)
 - Typography hierarchy (H1–Body-sm–Captions)
@@ -101,9 +107,11 @@ Reference documentation page showcasing:
 **Purpose**: Live design reference and testing ground.
 
 ### `dental.html` — Aurea Dental Landing Page
+
 Production-ready premium dentistry website with 8 major sections:
 
 #### 01 Hero (100vh)
+
 - **Split layout**: Left (content + CTAs), Right (video)
 - **Video**: Dental mouthguard transition (16:9 aspect, rounded frame, glow halo)
 - **Headline**: "Precisão / Restaurada" with masked text reveal and stroked typography
@@ -111,17 +119,22 @@ Production-ready premium dentistry website with 8 major sections:
 - **Metrics**: 18+ years, 4k smiles, 99% satisfaction
 
 #### 02 Marquee Strip
+
 Infinite scrolling dental keywords: Implantes, Reabilitação, Zircônia, Design Digital, etc.
 
 #### 03 Benefits (Why Aurea)
+
 4 flashlight cards:
+
 - Digital Precision (±20μm CAD/CAM)
 - Medical-Grade Materials (ISO-certified)
 - Comfortable Recovery (48-hour median)
 - Lasting Results (15-year warranty)
 
 #### 04 Treatment Process (Journey)
+
 5 numbered steps + data metrics:
+
 1. Consulta Inicial → Tomografia CBCT
 2. Planejamento Digital → Aprovação CAD
 3. Fabricação Própria → Fresagem em laboratório
@@ -131,7 +144,9 @@ Infinite scrolling dental keywords: Implantes, Reabilitação, Zircônia, Design
 **Metrics**: 98% implant success, 1.2d recovery, 0 remakes, ±20μm accuracy
 
 #### 05 Specialty Areas (Treatments)
+
 6 visual cards:
+
 - Implantes Dentários (Most requested)
 - All-on-4 / All-on-6 (Full arch)
 - Facetas de Porcelana (Premium)
@@ -140,16 +155,19 @@ Infinite scrolling dental keywords: Implantes, Reabilitação, Zircônia, Design
 - Design Digital do Sorriso (Planning)
 
 #### 06 Trust & Credibility
+
 - Certifications: ISO 13485, CE Mark, EAO Member, Straumann Gold Center
 - Clinical Team: Dr. E. Corrêa (PhD), Dr. A. Mendes (MSc)
 - Patient Testimonials: 4.9⭐ rating, 890+ reviews, 12 awards
 
 #### 07 Final CTA
+
 - Headline: "Seu sorriso de precisão começa aqui"
 - Description, Schedule button, Call button
 - Value props: No commitment, Digital preview, Written plan
 
 #### 08 Footer
+
 - Brand story, links to Treatments & Clinic
 - Copyright + ISO/CE/EAO badges
 
@@ -158,6 +176,7 @@ Infinite scrolling dental keywords: Implantes, Reabilitação, Zircônia, Design
 ## 🚀 Technical Details
 
 ### Performance & Optimization
+
 - **No external dependencies** — Pure HTML/CSS/JS (fonts are local)
 - **Lazy-loaded assets** — Video in `<video autoplay muted loop playsinline>`
 - **Responsive design** — Mobile-first, tested on desktop/tablet/mobile
@@ -166,6 +185,7 @@ Infinite scrolling dental keywords: Implantes, Reabilitação, Zircônia, Design
 - **Passive scroll listeners** — `{ passive: true }` for performance
 
 ### JavaScript Features
+
 - **Scroll reveal observer** — Intersection Observer API (0.12 threshold)
 - **Text reveal choreography** — Staggered `.delay-100` to `.delay-700` classes
 - **Parallax scrolling** — Per-element `data-speed` attribute handling
@@ -174,6 +194,7 @@ Infinite scrolling dental keywords: Implantes, Reabilitação, Zircônia, Design
 - **Flashlight glow** — `onmousemove` with CSS custom properties
 
 ### Browser Support
+
 - Chrome 90+ ✅
 - Safari 14+ ✅
 - Firefox 88+ ✅
@@ -194,13 +215,14 @@ Infinite scrolling dental keywords: Implantes, Reabilitação, Zircônia, Design
 ## 🎬 Video Integration
 
 ### Dental_mouthguard.mp4
+
 - **Format**: MP4 (H.264, 1920×1080)
 - **Usage**: Hero centerpiece, auto-playing, muted, looping
 - **Frame**: Dark rounded border with glow halo
 
 ```html
 <video autoplay muted loop playsinline>
-    <source src="./Dental_mouthguard.mp4" type="video/mp4" />
+  <source src="./Dental_mouthguard.mp4" type="video/mp4" />
 </video>
 ```
 
@@ -209,6 +231,7 @@ Infinite scrolling dental keywords: Implantes, Reabilitação, Zircônia, Design
 ## 🌍 Multilingual Support
 
 ### Available Languages
+
 - **English** (default): All content and metadata
 - **Português (BR)**: Complete translation of every user-facing string
 
@@ -219,6 +242,7 @@ Infinite scrolling dental keywords: Implantes, Reabilitação, Zircônia, Design
 ## 🛠 How to Use
 
 ### View Locally
+
 ```bash
 # Clone or download
 git clone <repo-url>
@@ -230,6 +254,7 @@ start dental.html # Windows
 ```
 
 ### Customize
+
 - **Colors**: Edit `:root { --accent: #e9d9b9; ... }`
 - **Text**: Search/replace strings
 - **Video**: Replace `./Dental_mouthguard.mp4` with your own
@@ -237,6 +262,7 @@ start dental.html # Windows
 - **Language**: Adapt Portuguese for other languages
 
 ### Deploy
+
 1. FTP the `preview/` folder to your hosting
 2. Ensure recursive directory upload
 3. Test video playback and fonts on production
@@ -246,13 +272,16 @@ start dental.html # Windows
 ## 💡 Design Highlights
 
 ### Aesthetic Philosophy
+
 **Less "standard clinic", more "premium contemporary dentistry":**
+
 - Editorial design sensibility (generous whitespace, fine typography)
 - Medical precision (ISO, certifications, clinical data)
 - Restrained luxury (champagne gold, soft grays, never garish)
 - Motion without noise (subtle reveals, 1s timings, smooth easing)
 
 ### Key Visual Decisions
+
 1. **Transparent Headlines** — `-webkit-text-stroke` communicates "premium" instantly
 2. **Video as Hero** — Dental prosthetics transition is the story
 3. **Glass Panels Everywhere** — Frosted surfaces repeat for visual cohesion
@@ -265,33 +294,45 @@ start dental.html # Windows
 ## 📊 Component Showcase
 
 ### Beam Button
+
 ```html
 <button class="beam-button group">
-    <span></span>
-    <span>
-        <span class="text-sm font-semibold uppercase">Schedule</span>
-        <iconify-icon class="group-hover:translate-x-1" icon="solar:arrow-right-linear"></iconify-icon>
-    </span>
+  <span></span>
+  <span>
+    <span class="text-sm font-semibold uppercase">Schedule</span>
+    <iconify-icon
+      class="group-hover:translate-x-1"
+      icon="solar:arrow-right-linear"
+    ></iconify-icon>
+  </span>
 </button>
 ```
+
 **Effect**: Rotating conic-gradient border + shimmer sweep
 
 ### Flashlight Card
+
 ```html
-<div class="flashlight-card" onmousemove="
+<div
+  class="flashlight-card"
+  onmousemove="
     const r = this.getBoundingClientRect();
     this.style.setProperty('--mouse-x', `${event.clientX - r.left}px`);
     this.style.setProperty('--mouse-y', `${event.clientY - r.top}px`);
-">
+"
+></div>
 ```
+
 **Effect**: Radial glow follows cursor
 
 ### Text Reveal
+
 ```html
 <span class="text-reveal-wrapper">
-    <span class="text-reveal-content delay-100">Word</span>
+  <span class="text-reveal-content delay-100">Word</span>
 </span>
 ```
+
 **Effect**: Words slide up and fade in with staggered delay
 
 ---
@@ -306,13 +347,14 @@ start dental.html # Windows
 ✅ Intersection Observer API: trigger animations without jank  
 ✅ Glassmorphism: backdrop-filter + border strategies  
 ✅ Bilingual markup: clean language-switching structure  
-✅ Premium UX: micro-interactions, hover states, orchestrated loading  
+✅ Premium UX: micro-interactions, hover states, orchestrated loading
 
 ---
 
 ## 📸 Demo
 
 To see this in action:
+
 1. Open `dental.html` in your browser
 2. Hero: Watch dental video with glowing halo
 3. Scroll: Observe staggered reveals and parallax
