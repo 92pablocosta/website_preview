@@ -112,20 +112,21 @@
       <div class="orb orb-white-sm" style="bottom:3rem;left:3rem;animation-delay:-6s;z-index:1"></div>
 
       <div class="hero-right-inner">
-        <div class="hero-glow"></div>
+        <div class="hero-glow" style="animation:video-glow 6s ease-in-out infinite"></div>
         <div class="hero-frame reveal delay-200">
-          <img src="../dental_studio/img/WhatsApp Image 2026-03-16 at 21.48.56.jpeg"
-            alt="Clínica Dental Studio" />
+          <video autoplay muted loop playsinline>
+            <source src="./Dental_mouthguard.mp4" type="video/mp4" />
+          </video>
         </div>
         <div class="hero-caption reveal delay-400">
           <span class="caption-line"></span>
-          <span>Ambiente Clínico · Equipamentos de última geração</span>
+          <span>Placa dental · transição de prótese</span>
           <span class="caption-line"></span>
         </div>
         <div class="float-metric float-tl reveal delay-300">
-          <div class="fm-lbl">Tecnologia</div>
-          <div class="fm-val">CAD/CAM</div>
-          <div class="fm-sub">Digital · Preciso</div>
+          <div class="fm-lbl">Material Clínico</div>
+          <div class="fm-val">Zircônia</div>
+          <div class="fm-sub">Biocompatível · ISO 13485</div>
         </div>
         <div class="float-metric float-br reveal delay-500">
           <div class="fm-lbl">Precisão</div>
@@ -331,7 +332,8 @@
 
     <div class="spec-grid">
       <div class="spec-card reveal">
-        <div class="sc-vis sc-g1">
+        <div class="sc-vis sc-g1 sc-vis-photo" style="background-image:url('./digital-assets/6c710de5-9712-4c8e-a7db-59ac54_b647957b5aa5.webp')">
+          <div class="sc-vis-overlay"></div>
           <div class="sc-orb"></div>
           <iconify-icon icon="solar:tooth-linear" class="sc-ico"></iconify-icon>
           <span class="sc-badge">Mais solicitado</span>
@@ -344,7 +346,8 @@
       </div>
 
       <div class="spec-card reveal delay-100">
-        <div class="sc-vis sc-g2">
+        <div class="sc-vis sc-g2 sc-vis-photo" style="background-image:url('./digital-assets/c7fa69dd-d7fb-48f2-a866-ef3663_f6b789593f38.webp')">
+          <div class="sc-vis-overlay"></div>
           <div class="sc-orb" style="animation-delay:-3s"></div>
           <iconify-icon icon="solar:smile-circle-linear" class="sc-ico"></iconify-icon>
           <span class="sc-badge">Arcada completa</span>
@@ -357,7 +360,8 @@
       </div>
 
       <div class="spec-card reveal delay-200">
-        <div class="sc-vis sc-g3">
+        <div class="sc-vis sc-g3 sc-vis-photo" style="background-image:url('./digital-assets/62cc53b7-3355-4618-b7fa-3283f6_a6d3415bc434.webp')">
+          <div class="sc-vis-overlay"></div>
           <div class="sc-orb" style="animation-delay:-5s"></div>
           <iconify-icon icon="solar:layers-minimalistic-linear" class="sc-ico"></iconify-icon>
           <span class="sc-badge">Premium</span>
@@ -370,7 +374,8 @@
       </div>
 
       <div class="spec-card reveal delay-300">
-        <div class="sc-vis sc-g4">
+        <div class="sc-vis sc-g4 sc-vis-photo" style="background-image:url('./digital-assets/ddab06d9-9060-42a5-9052-32121a_7062a2506669.webp')">
+          <div class="sc-vis-overlay"></div>
           <div class="sc-orb" style="animation-delay:-1s"></div>
           <iconify-icon icon="solar:medical-kit-linear" class="sc-ico"></iconify-icon>
         </div>
@@ -382,7 +387,8 @@
       </div>
 
       <div class="spec-card reveal delay-400">
-        <div class="sc-vis sc-g5">
+        <div class="sc-vis sc-g5 sc-vis-photo" style="background-image:url('./digital-assets/4b7d31e6-5b45-47eb-9853-96bbb9_bf1aa5f9d2cf.webp')">
+          <div class="sc-vis-overlay"></div>
           <div class="sc-orb" style="animation-delay:-7s"></div>
           <iconify-icon icon="solar:star-shine-linear" class="sc-ico"></iconify-icon>
         </div>
@@ -394,7 +400,8 @@
       </div>
 
       <div class="spec-card reveal delay-500">
-        <div class="sc-vis sc-g6">
+        <div class="sc-vis sc-g6 sc-vis-photo" style="background-image:url('./digital-assets/5ea5c0e9-3047-467a-9eaf-e49f65_6a6f021d85c6.webp')">
+          <div class="sc-vis-overlay"></div>
           <div class="sc-orb sc-orb-dark" style="animation-delay:-2s"></div>
           <iconify-icon icon="solar:chat-square-like-linear" class="sc-ico sc-ico-lt"></iconify-icon>
           <span class="sc-badge sc-badge-lt">Ponto de partida</span>
@@ -459,26 +466,30 @@
         <div class="test-panel glass-dark reveal delay-200">
           <div class="clbl">Perspectivas de Pacientes</div>
           <div class="testimonial">
-            <p class="t-quote">"O atendimento é impecável. Me senti seguro e cuidado em cada etapa do tratamento. O resultado superou todas as expectativas."</p>
+            <p class="t-quote">"Depois de 12 anos de insegurança, o All-on-4 mudou tudo. A equipe foi precisa, o resultado foi imediato, e não me arrependo nem um dia."</p>
             <div class="t-meta">
               <div class="t-av"><iconify-icon icon="solar:user-linear"></iconify-icon></div>
               <div>
-                <div class="t-name">Laio Nojento</div>
-                <div class="t-role">Implante · Reabilitação</div>
+                <div class="t-name">M.F., 54</div>
+                <div class="t-role">All-on-4 · Arcada completa</div>
               </div>
-              <div class="t-stars">★★★★★</div>
+              <div class="t-stars">
+                <iconify-icon icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon>
+              </div>
             </div>
           </div>
           <div class="t-divider"></div>
           <div class="testimonial">
-            <p class="t-quote">"Beto é muito bom, adoro ele!!! A equipe toda é incrível, e o resultado do meu tratamento foi simplesmente perfeito."</p>
+            <p class="t-quote">"A simulação digital me mostrou exatamente como ficaria antes de qualquer intervenção. Esse nível de transparência fez toda a diferença."</p>
             <div class="t-meta">
               <div class="t-av"><iconify-icon icon="solar:user-linear"></iconify-icon></div>
               <div>
-                <div class="t-name">Letícia Bellini</div>
-                <div class="t-role">Ortodontia Estética</div>
+                <div class="t-name">C.R., 38</div>
+                <div class="t-role">Facetas · Design Digital do Sorriso</div>
               </div>
-              <div class="t-stars">★★★★★</div>
+              <div class="t-stars">
+                <iconify-icon icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon><iconify-icon icon="solar:star-bold"></iconify-icon>
+              </div>
             </div>
           </div>
         </div>
