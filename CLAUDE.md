@@ -65,7 +65,7 @@ Landing page for **Dental Studio**, a premium dental clinic. Dark/gold theme. Si
 - A `.sc-vis-overlay` gradient div sits above each image to keep icons/badges legible
 
 ### Testimonials (section 05)
-- "Laio Nojento" (joke placeholder) → anonymized `M.F., 54` with copy from v2
+- First testimonial name is `Laio Nojento` (intentional, keep it)
 - Second testimonial updated to `C.R., 38` with better copy
 - Star ratings changed from `★★★★★` text to `solar:star-bold` Iconify icons
 
