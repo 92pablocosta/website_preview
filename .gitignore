@@ -1,0 +1,38 @@
+# Claude Code local settings
+.claude/
+
+# Backup folder (excluded per CLAUDE.md)
+@backup/
+
+# Environment & secrets
+.env
+.env.*
+*.env
+*.secret
+*.key
+*.pem
+*.p12
+*.pfx
+secrets.*
+credentials.*
+
+# Large binary assets (video — use CDN or Git LFS instead)
+public/assets/videos/*.mp4
+public/assets/videos/*.mov
+public/assets/videos/*.webm
+
+# Proprietary client design docs (optional — remove line to track)
+docs/dental_studio_design.pdf
+
+# OS & editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+
+# Node (if ever used)
+node_modules/
+npm-debug.log*
+yarn-error.log*

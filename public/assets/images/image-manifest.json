@@ -1,0 +1,450 @@
+﻿[
+    {
+        "slot":  "hero",
+        "name":  "hero-main",
+        "source":  "4O9A5298.jpg",
+        "original":  {
+                         "path":  "assets/images/original/hero-main.jpg",
+                         "bytes":  4716696
+                     },
+        "variants":  {
+                         "desktop":  {
+                                         "path":  "assets/images/optimized/hero-main-desktop.jpg",
+                                         "width":  1920,
+                                         "height":  1510,
+                                         "bytes":  279731,
+                                         "quality":  82
+                                     },
+                         "tablet":  {
+                                        "path":  "assets/images/optimized/hero-main-tablet.jpg",
+                                        "width":  1280,
+                                        "height":  1007,
+                                        "bytes":  128993,
+                                        "quality":  80
+                                    },
+                         "mobile":  {
+                                        "path":  "assets/images/optimized/hero-main-mobile.jpg",
+                                        "width":  768,
+                                        "height":  604,
+                                        "bytes":  51151,
+                                        "quality":  78
+                                    }
+                     }
+    },
+    {
+        "slot":  "hero",
+        "name":  "hero-alt-01",
+        "source":  "4O9A5297.jpg",
+        "original":  {
+                         "path":  "assets/images/original/hero-alt-01.jpg",
+                         "bytes":  4480083
+                     },
+        "variants":  {
+                         "desktop":  {
+                                         "path":  "assets/images/optimized/hero-alt-01-desktop.jpg",
+                                         "width":  1290,
+                                         "height":  1920,
+                                         "bytes":  217470,
+                                         "quality":  82
+                                     },
+                         "tablet":  {
+                                        "path":  "assets/images/optimized/hero-alt-01-tablet.jpg",
+                                        "width":  860,
+                                        "height":  1280,
+                                        "bytes":  100037,
+                                        "quality":  80
+                                    },
+                         "mobile":  {
+                                        "path":  "assets/images/optimized/hero-alt-01-mobile.jpg",
+                                        "width":  516,
+                                        "height":  768,
+                                        "bytes":  39985,
+                                        "quality":  78
+                                    }
+                     }
+    },
+    {
+        "slot":  "hero",
+        "name":  "hero-alt-02",
+        "source":  "4O9A5296.jpg",
+        "original":  {
+                         "path":  "assets/images/original/hero-alt-02.jpg",
+                         "bytes":  4270738
+                     },
+        "variants":  {
+                         "desktop":  {
+                                         "path":  "assets/images/optimized/hero-alt-02-desktop.jpg",
+                                         "width":  1920,
+                                         "height":  1280,
+                                         "bytes":  219419,
+                                         "quality":  82
+                                     },
+                         "tablet":  {
+                                        "path":  "assets/images/optimized/hero-alt-02-tablet.jpg",
+                                        "width":  1280,
+                                        "height":  853,
+                                        "bytes":  105295,
+                                        "quality":  80
+                                    },
+                         "mobile":  {
+                                        "path":  "assets/images/optimized/hero-alt-02-mobile.jpg",
+                                        "width":  768,
+                                        "height":  512,
+                                        "bytes":  43692,
+                                        "quality":  78
+                                    }
+                     }
+    },
+    {
+        "slot":  "services",
+        "name":  "service-estetica",
+        "source":  "4O9A5295.jpg",
+        "original":  {
+                         "path":  "assets/images/original/service-estetica.jpg",
+                         "bytes":  4057898
+                     },
+        "variants":  {
+                         "desktop":  {
+                                         "path":  "assets/images/optimized/service-estetica-desktop.jpg",
+                                         "width":  1920,
+                                         "height":  1439,
+                                         "bytes":  204851,
+                                         "quality":  82
+                                     },
+                         "tablet":  {
+                                        "path":  "assets/images/optimized/service-estetica-tablet.jpg",
+                                        "width":  1280,
+                                        "height":  959,
+                                        "bytes":  98314,
+                                        "quality":  80
+                                    },
+                         "mobile":  {
+                                        "path":  "assets/images/optimized/service-estetica-mobile.jpg",
+                                        "width":  768,
+                                        "height":  575,
+                                        "bytes":  41655,
+                                        "quality":  78
+                                    }
+                     }
+    },
+    {
+        "slot":  "services",
+        "name":  "service-implantes",
+        "source":  "4O9A5303.jpg",
+        "original":  {
+                         "path":  "assets/images/original/service-implantes.jpg",
+                         "bytes":  4651415
+                     },
+        "variants":  {
+                         "desktop":  {
+                                         "path":  "assets/images/optimized/service-implantes-desktop.jpg",
+                                         "width":  1920,
+                                         "height":  1379,
+                                         "bytes":  285949,
+                                         "quality":  82
+                                     },
+                         "tablet":  {
+                                        "path":  "assets/images/optimized/service-implantes-tablet.jpg",
+                                        "width":  1280,
+                                        "height":  919,
+                                        "bytes":  138337,
+                                        "quality":  80
+                                    },
+                         "mobile":  {
+                                        "path":  "assets/images/optimized/service-implantes-mobile.jpg",
+                                        "width":  768,
+                                        "height":  551,
+                                        "bytes":  58710,
+                                        "quality":  78
+                                    }
+                     }
+    },
+    {
+        "slot":  "services",
+        "name":  "service-ortodontia",
+        "source":  "4O9A5304.jpg",
+        "original":  {
+                         "path":  "assets/images/original/service-ortodontia.jpg",
+                         "bytes":  4615118
+                     },
+        "variants":  {
+                         "desktop":  {
+                                         "path":  "assets/images/optimized/service-ortodontia-desktop.jpg",
+                                         "width":  1920,
+                                         "height":  1280,
+                                         "bytes":  278400,
+                                         "quality":  82
+                                     },
+                         "tablet":  {
+                                        "path":  "assets/images/optimized/service-ortodontia-tablet.jpg",
+                                        "width":  1280,
+                                        "height":  853,
+                                        "bytes":  135478,
+                                        "quality":  80
+                                    },
+                         "mobile":  {
+                                        "path":  "assets/images/optimized/service-ortodontia-mobile.jpg",
+                                        "width":  768,
+                                        "height":  512,
+                                        "bytes":  56830,
+                                        "quality":  78
+                                    }
+                     }
+    },
+    {
+        "slot":  "process",
+        "name":  "process-scan",
+        "source":  "4O9A5307.jpg",
+        "original":  {
+                         "path":  "assets/images/original/process-scan.jpg",
+                         "bytes":  4396408
+                     },
+        "variants":  {
+                         "desktop":  {
+                                         "path":  "assets/images/optimized/process-scan-desktop.jpg",
+                                         "width":  1920,
+                                         "height":  1381,
+                                         "bytes":  257172,
+                                         "quality":  82
+                                     },
+                         "tablet":  {
+                                        "path":  "assets/images/optimized/process-scan-tablet.jpg",
+                                        "width":  1280,
+                                        "height":  921,
+                                        "bytes":  123191,
+                                        "quality":  80
+                                    },
+                         "mobile":  {
+                                        "path":  "assets/images/optimized/process-scan-mobile.jpg",
+                                        "width":  768,
+                                        "height":  552,
+                                        "bytes":  51577,
+                                        "quality":  78
+                                    }
+                     }
+    },
+    {
+        "slot":  "process",
+        "name":  "process-fabrication",
+        "source":  "4O9A5308.jpg",
+        "original":  {
+                         "path":  "assets/images/original/process-fabrication.jpg",
+                         "bytes":  4731398
+                     },
+        "variants":  {
+                         "desktop":  {
+                                         "path":  "assets/images/optimized/process-fabrication-desktop.jpg",
+                                         "width":  1920,
+                                         "height":  1280,
+                                         "bytes":  244827,
+                                         "quality":  82
+                                     },
+                         "tablet":  {
+                                        "path":  "assets/images/optimized/process-fabrication-tablet.jpg",
+                                        "width":  1280,
+                                        "height":  853,
+                                        "bytes":  115966,
+                                        "quality":  80
+                                    },
+                         "mobile":  {
+                                        "path":  "assets/images/optimized/process-fabrication-mobile.jpg",
+                                        "width":  768,
+                                        "height":  512,
+                                        "bytes":  47632,
+                                        "quality":  78
+                                    }
+                     }
+    },
+    {
+        "slot":  "specialties",
+        "name":  "specialty-lentes",
+        "source":  "4O9A5312.jpg",
+        "original":  {
+                         "path":  "assets/images/original/specialty-lentes.jpg",
+                         "bytes":  4391124
+                     },
+        "variants":  {
+                         "desktop":  {
+                                         "path":  "assets/images/optimized/specialty-lentes-desktop.jpg",
+                                         "width":  1920,
+                                         "height":  1280,
+                                         "bytes":  247357,
+                                         "quality":  82
+                                     },
+                         "tablet":  {
+                                        "path":  "assets/images/optimized/specialty-lentes-tablet.jpg",
+                                        "width":  1280,
+                                        "height":  853,
+                                        "bytes":  119890,
+                                        "quality":  80
+                                    },
+                         "mobile":  {
+                                        "path":  "assets/images/optimized/specialty-lentes-mobile.jpg",
+                                        "width":  768,
+                                        "height":  512,
+                                        "bytes":  50651,
+                                        "quality":  78
+                                    }
+                     }
+    },
+    {
+        "slot":  "specialties",
+        "name":  "specialty-all-on",
+        "source":  "4O9A5314.jpg",
+        "original":  {
+                         "path":  "assets/images/original/specialty-all-on.jpg",
+                         "bytes":  4207823
+                     },
+        "variants":  {
+                         "desktop":  {
+                                         "path":  "assets/images/optimized/specialty-all-on-desktop.jpg",
+                                         "width":  1280,
+                                         "height":  1920,
+                                         "bytes":  213823,
+                                         "quality":  82
+                                     },
+                         "tablet":  {
+                                        "path":  "assets/images/optimized/specialty-all-on-tablet.jpg",
+                                        "width":  853,
+                                        "height":  1280,
+                                        "bytes":  105932,
+                                        "quality":  80
+                                    },
+                         "mobile":  {
+                                        "path":  "assets/images/optimized/specialty-all-on-mobile.jpg",
+                                        "width":  512,
+                                        "height":  768,
+                                        "bytes":  45089,
+                                        "quality":  78
+                                    }
+                     }
+    },
+    {
+        "slot":  "team",
+        "name":  "team-doctors",
+        "source":  "4O9A5316.jpg",
+        "original":  {
+                         "path":  "assets/images/original/team-doctors.jpg",
+                         "bytes":  3799757
+                     },
+        "variants":  {
+                         "desktop":  {
+                                         "path":  "assets/images/optimized/team-doctors-desktop.jpg",
+                                         "width":  1920,
+                                         "height":  1688,
+                                         "bytes":  259111,
+                                         "quality":  82
+                                     },
+                         "tablet":  {
+                                        "path":  "assets/images/optimized/team-doctors-tablet.jpg",
+                                        "width":  1280,
+                                        "height":  1125,
+                                        "bytes":  130488,
+                                        "quality":  80
+                                    },
+                         "mobile":  {
+                                        "path":  "assets/images/optimized/team-doctors-mobile.jpg",
+                                        "width":  768,
+                                        "height":  675,
+                                        "bytes":  56894,
+                                        "quality":  78
+                                    }
+                     }
+    },
+    {
+        "slot":  "team",
+        "name":  "clinic-interior",
+        "source":  "4O9A5320.jpg",
+        "original":  {
+                         "path":  "assets/images/original/clinic-interior.jpg",
+                         "bytes":  3750850
+                     },
+        "variants":  {
+                         "desktop":  {
+                                         "path":  "assets/images/optimized/clinic-interior-desktop.jpg",
+                                         "width":  1371,
+                                         "height":  1920,
+                                         "bytes":  172260,
+                                         "quality":  82
+                                     },
+                         "tablet":  {
+                                        "path":  "assets/images/optimized/clinic-interior-tablet.jpg",
+                                        "width":  914,
+                                        "height":  1280,
+                                        "bytes":  82858,
+                                        "quality":  80
+                                    },
+                         "mobile":  {
+                                        "path":  "assets/images/optimized/clinic-interior-mobile.jpg",
+                                        "width":  548,
+                                        "height":  768,
+                                        "bytes":  35687,
+                                        "quality":  78
+                                    }
+                     }
+    },
+    {
+        "slot":  "social-proof",
+        "name":  "testimonial-patient",
+        "source":  "4O9A5324.jpg",
+        "original":  {
+                         "path":  "assets/images/original/testimonial-patient.jpg",
+                         "bytes":  3683758
+                     },
+        "variants":  {
+                         "desktop":  {
+                                         "path":  "assets/images/optimized/testimonial-patient-desktop.jpg",
+                                         "width":  1920,
+                                         "height":  1280,
+                                         "bytes":  203456,
+                                         "quality":  82
+                                     },
+                         "tablet":  {
+                                        "path":  "assets/images/optimized/testimonial-patient-tablet.jpg",
+                                        "width":  1280,
+                                        "height":  853,
+                                        "bytes":  100267,
+                                        "quality":  80
+                                    },
+                         "mobile":  {
+                                        "path":  "assets/images/optimized/testimonial-patient-mobile.jpg",
+                                        "width":  768,
+                                        "height":  512,
+                                        "bytes":  43179,
+                                        "quality":  78
+                                    }
+                     }
+    },
+    {
+        "slot":  "cta",
+        "name":  "cta-clinic",
+        "source":  "4O9A5327.jpg",
+        "original":  {
+                         "path":  "assets/images/original/cta-clinic.jpg",
+                         "bytes":  3478899
+                     },
+        "variants":  {
+                         "desktop":  {
+                                         "path":  "assets/images/optimized/cta-clinic-desktop.jpg",
+                                         "width":  1280,
+                                         "height":  1920,
+                                         "bytes":  151636,
+                                         "quality":  82
+                                     },
+                         "tablet":  {
+                                        "path":  "assets/images/optimized/cta-clinic-tablet.jpg",
+                                        "width":  853,
+                                        "height":  1280,
+                                        "bytes":  77186,
+                                        "quality":  80
+                                    },
+                         "mobile":  {
+                                        "path":  "assets/images/optimized/cta-clinic-mobile.jpg",
+                                        "width":  512,
+                                        "height":  768,
+                                        "bytes":  33298,
+                                        "quality":  78
+                                    }
+                     }
+    }
+]
