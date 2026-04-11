@@ -189,6 +189,14 @@ button{font-family:var(--font-b);cursor:pointer}
 }
 .nav-cta:hover{background:rgba(226,184,94,0.14);border-color:var(--gold-5)}
 
+.nav-years{
+  font-size:0.58rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:rgba(226,184,94,0.55);
+  padding:0.28rem 0.7rem;
+  border:1px solid rgba(226,184,94,0.16);
+  border-radius:999px;
+}
+
 /* ─────────────────────────────────────────────────────────
    GLASS DARK
 ───────────────────────────────────────────────────────── */
@@ -318,6 +326,7 @@ button{font-family:var(--font-b);cursor:pointer}
 }
 .hero-panel{border-radius:var(--r-xl);padding:1.75rem;margin-top:2rem}
 .hero-panel p{font-size:1rem;color:rgba(255,255,255,0.7);line-height:1.7}
+.hero-desc{font-size:1rem;color:rgba(255,255,255,0.6);line-height:1.75;margin-top:2rem;max-width:38ch}
 .hero-btns{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;margin-top:1.75rem}
 
 .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:0.65rem}
